@@ -19,5 +19,6 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^wip/', views.wip_page, name='wip')
+    url(r'^wip/', views.wip_page, name='wip'),
+    url(r'^home/', views.home_page, name='home'),
 ]
