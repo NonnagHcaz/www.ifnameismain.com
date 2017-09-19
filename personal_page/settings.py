@@ -11,11 +11,10 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-os.environ['DJANGO_LIVE_TEST_SERVER_ADDRESS']="localhost:8000-8010,8080,9200-9300"
+os.environ['DJANGO_LIVE_TEST_SERVER_ADDRESS'] = "localhost:8000-8010,8080,9200-9300"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -121,7 +120,7 @@ USE_TZ = True
 
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 STATICFILES_DIRS = (
-  os.path.join(SITE_ROOT, 'static/'),
+    os.path.join(SITE_ROOT, 'static/'),
 )
 
 # Logging
