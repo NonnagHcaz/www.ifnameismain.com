@@ -86,9 +86,9 @@ install:
   - "pip install -r dev-requirements.txt"
   - "pip install -r requirements.txt"
 
-build_script:
-  # Build the compiled extension
-  - "python setup.py build"
+# build_script:
+#   # Build the compiled extension
+#   - "python setup.py build"
 
 test_script:
   # Run the project tests
