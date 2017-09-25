@@ -1,5 +1,5 @@
 """
-WSGI config for personal_page project.
+WSGI config for pythonanywhere project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -8,14 +8,9 @@ https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
 """
 
 import os
-import sys
-
-path = '/home/gannon93/personal_page'
-if path not in sys.path:
-    sys.path.append(path)
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "personal_page.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pythonanywhere.settings")
 
 application = get_wsgi_application()
