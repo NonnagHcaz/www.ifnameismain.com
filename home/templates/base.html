@@ -10,6 +10,8 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+   <link rel="stylesheet" href="{% static 'css/overlay.css' %}">
+   <script type="text/javascript" src="{% static 'js/overlay.js' %}"></script>
 
    <style>
       @font-face {
@@ -37,7 +39,14 @@
    </style>
 
    <body class="bgimg">
+      <div id="overlay" onclick="off()">
+        <div id="text">Overlay Text</div>
+      </div>
 
+      <div style="padding:20px">
+        <h2>Overlay with Text</h2>
+        <button onclick="on()">Turn on overlay effect</button>
+      </div>
       <!-- Icon Bar (Sidebar - hidden on small screens) -->
       <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
          <!-- Avatar image in top left corner -->
