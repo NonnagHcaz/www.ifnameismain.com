@@ -21,6 +21,7 @@ from home import urls as home_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', home_views.home_page, name='home'),
+    url(r'^$', home_views.landing_page, name='landing'),
+    url(r'^home/', home_views.home_page, name='home'),
     url(r'', include(home_urls)),
 ]

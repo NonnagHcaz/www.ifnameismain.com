@@ -14,7 +14,7 @@ input.footer {
 
 div.container {
     width: 100%;
-    border: 1px solid gray;
+    border: 0px solid gray;
 }
 
 header, footer {
@@ -41,7 +41,7 @@ nav ul a {
 
 article {
     margin-left: 170px;
-    border-left: 1px solid gray;
-    padding: 0em;
+    border: 0px solid gray;
+    padding: 1em;
     overflow: hidden;
 }

@@ -28,3 +28,12 @@ def coding_page(request):
 
 def wd2_page(request):
     return render(request, 'wd2.html')
+
+
+def landing_page(request):
+    if 'landed' in request.COOKIES:
+        response = home_page(request)
+    else:
+        response = wd2_page(request)
+        response.set_cookie('landed', '1')
+    return response
