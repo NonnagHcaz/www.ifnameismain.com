@@ -24,3 +24,7 @@ def contact_page(request):
 
 def coding_page(request):
     return render(request, 'coding.html')
+
+
+def wd2_page(request):
+    return render(request, 'wd2.html')

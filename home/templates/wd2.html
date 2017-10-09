@@ -1,0 +1,45 @@
+{% load staticfiles %}
+{% load static %}
+
+<DOCTYPE html>
+<html>
+    <head>
+        <title>Initiating...</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/splash.css' %}">
+        <script
+           src="https://code.jquery.com/jquery-3.2.1.min.js"
+           integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+           crossorigin="anonymous"></script>
+        <script src="{% static 'js/jquery.blink.js' %}"></script>
+        <script src="{% static 'js/speak.js' %}"></script>
+        <script>
+
+          $(document).ready(function() {
+            $('#code').hide()
+            Speak(
+                "Initializing content...<br />" +
+                "Content initialized.<br /><br />" +
+                "Enter username:<br />" +
+                "$&gt Retr0<br />" +
+                "Enter password:<br />" +
+                "$&gt *****************<br /><br />" +
+                "Welcome Retr0.<br />");
+            $('#code').show()
+            $('.blink').blink({delay: 500});
+
+          });
+
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            <article class="box">
+                <div id="message"></div>
+                <div id="code">$&gt <span class="blink">_</span></div>
+            </article>
+        </div>
+
+    </body>
+
+</html>
