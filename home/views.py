@@ -1,10 +1,10 @@
 from django.shortcuts import render
 
 try:
-    from charon import charon
-    charon_avail = True
+    from kharon import kharon
+    kharon_avail = True
 except:
-    charon_avail = False
+    kharon_avail = False
 
 # from django.http import HttpResponse
 
@@ -46,18 +46,26 @@ def landing_page(request):
     return response
 
 
-def charon_page(request):
+def kharon_page(request):
     preview = ''
     output = ''
-    if(request.GET.get('upload_github_button')):
+    if request.GET.get('upload_github_button'):
         username = request.GET.get('username_text')
         reponame = request.GET.get('reponame_text')
         cogname = request.GET.get('cogname_text')
-        if charon_avail:
+        if kharon_avail:
             try:
-                preview = charon.get_info(username, reponame, cogname)
+                preview = kharon.get_info(username, reponame, cogname)
             except Exception as e:
                 print(str(e))
-
+        else:
+            print('ERROR: kharon not found.')
+    elif request.GET.get('convert_button'):
+        contents = request.GET.get('upload_preview_textarea')
+        print(contents)
+        # formatted = kharon.format_info
+    elif request.GET.get('export_button'):
+        contents = request.GET.get('export_output_textarea')
+        print(contents)
     return render(
-        request, 'charon.html', {'preview': preview, 'output': output})
+        request, 'kharon.html', {'preview': preview, 'output': output})
