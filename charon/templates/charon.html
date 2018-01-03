@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block side-home %}
+  w3-hover-black
+{% endblock %}
+
+{% block side-coding %}
+  w3-black
+{% endblock %}
+
+{% block side-gaming %}
+  w3-hover-black
+{% endblock %}
+
+{% block side-music %}
+  w3-hover-black
+{% endblock %}
+
+{% block side-contact %}
+  w3-hover-black
+{% endblock %}
+
+{% block header %}
+  <header class="w3-container w3-padding-32 w3-center w3-black bgimg" id="header">
+    <h2>Welcome to the live version of...</h2>
+    <h1 class="w3-jumbo">Charon</h1>
+  </header>
+{% endblock %}
+
+{% block content %}
+  <!-- Use any element to open/show the overlay navigation menu -->
+  <div class="w3-content w3-justify w3-text-white w3-padding-64" id="content">
+    Charon is a python module (`pip install charon`) which will convert your Red-DiscordBot cogs' `info.json` files from v2 to v3.
+    <br /><br />
+    This was developed because I am lazy and didn't want to manually change all keys to `lower()`, change `authors` to be a list, or remap `DISABLED` to `hidden`.
+    <hr />
+    To use the live version of Charon:
+    <br /><br />
+    <ol>
+      <li>Provide Charon with your `info.json` file:
+        <ul>
+          <li>Provide Charon your GitHub username, repository name, and cog name.</li>
+          <li>Upload your `info.json` file from your local machine.</li>
+          <li>Paste the contents of your `info.json` file in the `Preview` pane.</li>
+        </ul>
+      <li>Select which version you want to convert your `info.json` file.</li>
+      <li>Convert your `info.json` file.</li>
+      <li>Copy or export the results.</li>
+      <li>???</li>
+      <li>PROFIT!</li>
+    </ol> 
+    <hr />
+    <form id="charon_form">
+      1. Provide Charon your `info.json` file.
+      <div id="upload_div">
+        <div id="upload_github_div">
+          <br /><br />
+          GitHub:
+          <br /><br />
+          <input type="text" name="username_text" value="Username" onClick="this.setSelectionRange(0, this.value.length)"></input>
+          <input type="text" name="reponame_text" value="Repo Name" onClick="this.setSelectionRange(0, this.value.length)"></input>
+          <input type="text" name="cogname_text" value = "Cog Name" onClick="this.setSelectionRange(0, this.value.length)"></input>
+          <br /><br />
+          <button type="submit" name="upload_github_button" id="upload_github_button" value="1">Retrieve info.json from GitHub...</button>
+        </div>
+        <div id="upload_file_div" style="display: None">
+          <br /><br />
+          <button id="upload_file_button">Upload your info.json file...</button>
+        </div>
+        <div id="upload_preview_div">
+          <br /><br />
+          Preview:
+          <br /><br />
+          <textarea id="upload_preview_textarea" rows="20" cols="72">{{preview}}</textarea>
+        </div>
+      </div>
+      <hr />
+      2. Convert your info.json to...
+      <br /><br />
+      <input type="radio" id="v3_radio" name="red_version" value="v3" checked>Red v3</input>
+      <input type="radio" id = "v2_radio" name="red_version" value="v2">Red v2</input>
+      <br /><br />
+      <button id="convert_button">Convert your info.json</button>
+    </form>
+  </div>
+
+{% endblock %}

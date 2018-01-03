@@ -19,9 +19,12 @@ from django.contrib import admin
 from home import views as home_views
 from home import urls as home_urls
 
+from charon import views as charon_views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home_views.landing_page, name='landing'),
     url(r'^home/', home_views.home_page, name='home'),
     url(r'', include(home_urls)),
+    url(r'^charon/', charon_views.charon_page, name='charon'),
 ]
