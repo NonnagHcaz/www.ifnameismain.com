@@ -1,4 +1,11 @@
 from django.shortcuts import render
+
+try:
+    from charon import charon
+    charon_avail = True
+except:
+    charon_avail = False
+
 # from django.http import HttpResponse
 
 
@@ -37,3 +44,17 @@ def landing_page(request):
         response = wd2_page(request)
         response.set_cookie('landed', '1')
     return response
+
+
+def charon_page(request):
+    preview = ''
+    output = ''
+    if(request.GET.get('upload_github_button')):
+        username = request.GET.get('username_text')
+        reponame = request.GET.get('reponame_text')
+        cogname = request.GET.get('cogname_text')
+        if charon_avail:
+            preview = charon.get_info(username, reponame, cogname)
+
+    return render(
+        request, 'charon.html', {'preview': preview, 'output': output})
