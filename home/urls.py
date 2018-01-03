@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^gaming/', views.gaming_page, name='gaming'),
     url(r'^contact/', views.contact_page, name='contact'),
     url(r'^login/', views.wd2_page, name='wd2'),
+    url(r'^charon/', views.charon_page, name='charon'),
 ]
