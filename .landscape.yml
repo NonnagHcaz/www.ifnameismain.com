@@ -8,5 +8,4 @@ uses:
 ignore-patterns:
   - setup.py
 python-targets:
-  - 2
   - 3
