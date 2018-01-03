@@ -29,6 +29,17 @@
 {% endblock %}
 
 {% block content %}
+  <script>
+    function export_json() {
+      var data = document.getElementById("export_output_textarea").value;
+      alert(data)
+    }
+
+    function copy_json() {
+      var data = document.getElementById("export_output_textarea").value;
+      alert(data)
+    }
+  </script>
   <!-- Use any element to open/show the overlay navigation menu -->
   <div class="w3-content w3-justify w3-text-white w3-padding-64" id="content">
     Charon is a python module (`pip install charon`) which will convert your Red-DiscordBot cogs' `info.json` files from v2 to v3.
@@ -52,8 +63,8 @@
     </ol> 
     <hr />
     <form id="charon_form">
-      1. Provide Charon your `info.json` file.
       <div id="upload_div">
+        1. Provide Charon your `info.json` file.
         <div id="upload_github_div">
           <br /><br />
           GitHub:
@@ -74,14 +85,30 @@
           <br /><br />
           <textarea id="upload_preview_textarea" rows="20" cols="72">{{preview}}</textarea>
         </div>
-      </div>
       <hr />
-      2. Convert your info.json to...
-      <br /><br />
-      <input type="radio" id="v3_radio" name="red_version" value="v3" checked>Red v3</input>
-      <input type="radio" id = "v2_radio" name="red_version" value="v2">Red v2</input>
-      <br /><br />
-      <button id="convert_button">Convert your info.json</button>
+      </div>
+
+      <div id="convert_div>">
+        2. Convert your info.json to...
+        <br /><br />
+        <input type="radio" id="v3_radio" name="red_version" value="v3" checked>Red v3</input>
+        <input type="radio" id = "v2_radio" name="red_version" value="v2">Red v2</input>
+        <br /><br />
+        <button id="convert_button">Convert your info.json</button>
+        <br /><br />
+        <hr />
+      </div>
+
+      <div id="export_div">
+        3. Save your results...
+        <br /><br />
+        Output:
+        <br /><br />
+        <textarea id="export_output_textarea" rows="20" cols="72">{{output}}</textarea>
+        <br /><br />
+        <input type="button" onclick="export_json()" name="export_button" id="export_button" value="Export to JSON"></input>
+        <input type="button" onclick="copy_json()" name="copy_button" id="copy_button" value="Copy to Clipboard"></input>
+      </div>
     </form>
   </div>
 

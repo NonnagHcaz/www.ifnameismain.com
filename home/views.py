@@ -54,7 +54,10 @@ def charon_page(request):
         reponame = request.GET.get('reponame_text')
         cogname = request.GET.get('cogname_text')
         if charon_avail:
-            preview = charon.get_info(username, reponame, cogname)
+            try:
+                preview = charon.get_info(username, reponame, cogname)
+            except Exception as e:
+                print(str(e))
 
     return render(
         request, 'charon.html', {'preview': preview, 'output': output})
