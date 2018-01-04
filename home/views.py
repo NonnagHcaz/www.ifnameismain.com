@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
+import json
+from pprint import pprint
+
 try:
     from kharon import kharon
     kharon_avail = True
@@ -49,23 +52,31 @@ def landing_page(request):
 def kharon_page(request):
     preview = ''
     output = ''
+    target = 'kharon.html'
     if request.GET.get('upload_github_button'):
-        username = request.GET.get('username_text')
-        reponame = request.GET.get('reponame_text')
-        cogname = request.GET.get('cogname_text')
+        username = request.GET.get('username_text').lower()
+        reponame = request.GET.get('reponame_text').lower()
+        cogname = request.GET.get('cogname_text').lower()
         if kharon_avail:
             try:
-                preview = kharon.get_info(username, reponame, cogname)
+                preview = json.dumps(kharon.get_info(
+                    username, reponame, cogname))
+                target += '#upload'
             except Exception as e:
-                print(str(e))
+                pprint(str(e))
         else:
             print('ERROR: kharon not found.')
     elif request.GET.get('convert_button'):
-        contents = request.GET.get('upload_preview_textarea')
-        print(contents)
-        # formatted = kharon.format_info
+        data = request.GET.get('upload_preview_textarea')
+        preview = json.loads(data)
+        print('\n' + '*' * 72 + '\n')
+        print(preview)
+        print('\n' + '*' * 72 + '\n')
+        output = kharon.format_info(preview)
+        target += '#convert'
     elif request.GET.get('export_button'):
-        contents = request.GET.get('export_output_textarea')
+        contents = json.loads(request.GET.get('export_output_textarea'))
         print(contents)
+        target += '#export'
     return render(
         request, 'kharon.html', {'preview': preview, 'output': output})

@@ -63,21 +63,21 @@
     </ol>
     <hr />
     <form id="Kharon_form">
-      <div id="upload_div">
+      <div id="upload">
         1. Provide Kharon your `info.json` file.
         <div id="upload_github_div">
           <br /><br />
           GitHub:
           <br /><br />
-          <input type="text" name="username_text" value="Username" onClick="this.setSelectionRange(0, this.value.length)"></input>
-          <input type="text" name="reponame_text" value="Repo Name" onClick="this.setSelectionRange(0, this.value.length)"></input>
-          <input type="text" name="cogname_text" value = "Cog Name" onClick="this.setSelectionRange(0, this.value.length)"></input>
+          <input type="text" name="username_text" value="gannon93" onClick="this.setSelectionRange(0, this.value.length)"></input>
+          <input type="text" name="reponame_text" value="gkit_cogs" onClick="this.setSelectionRange(0, this.value.length)"></input>
+          <input type="text" name="cogname_text" value = "basta" onClick="this.setSelectionRange(0, this.value.length)"></input>
           <br /><br />
           <button type="submit" name="upload_github_button" id="upload_github_button" value="1">Retrieve info.json from GitHub...</button>
         </div>
         <div id="upload_file_div" style="display: None">
           <br /><br />
-          <button id="upload_file_button">Upload your info.json file...</button>
+          <button id="upload_file_button" name="upload_file_button" value="1">Upload your info.json file...</button>
         </div>
         <div id="upload_preview_div">
           <br /><br />
@@ -88,18 +88,18 @@
       <hr />
       </div>
 
-      <div id="convert_div>">
+      <div id="convert">
         2. Convert your info.json to...
         <br /><br />
         <input type="radio" id="v3_radio" name="red_version" value="v3" checked>Red v3</input>
         <input type="radio" id = "v2_radio" name="red_version" value="v2">Red v2</input>
         <br /><br />
-        <button id="convert_button">Convert your info.json</button>
+        <button id="convert_button" name="convert_button" value="1">Convert your info.json</button>
         <br /><br />
         <hr />
       </div>
 
-      <div id="export_div">
+      <div id="export">
         3. Save your results...
         <br /><br />
         Output:
