@@ -26,5 +26,5 @@ urlpatterns = [
     url(r'^gaming/', views.gaming_page, name='gaming'),
     url(r'^contact/', views.contact_page, name='contact'),
     url(r'^login/', views.wd2_page, name='wd2'),
-    url(r'^kharon/', views.kharon_page, name='kharon'),
+    url(r'^[kK]haron/', views.kharon_page, name='kharon'),
 ]

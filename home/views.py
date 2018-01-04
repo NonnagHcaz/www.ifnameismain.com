@@ -63,20 +63,14 @@ def kharon_page(request):
                     username, reponame, cogname))
                 target += '#upload'
             except Exception as e:
-                pprint(str(e))
-        else:
-            print('ERROR: kharon not found.')
+                pass
     elif request.GET.get('convert_button'):
         data = request.GET.get('upload_preview_textarea')
         preview = json.loads(data)
-        print('\n' + '*' * 72 + '\n')
-        print(preview)
-        print('\n' + '*' * 72 + '\n')
         output = kharon.format_info(preview)
         target += '#convert'
     elif request.GET.get('export_button'):
         contents = json.loads(request.GET.get('export_output_textarea'))
-        print(contents)
         target += '#export'
     return render(
         request, 'kharon.html', {'preview': preview, 'output': output})
