@@ -12,6 +12,10 @@ except:
 # from django.http import HttpResponse
 
 
+def about_page(request):
+    return render(request, 'about.html')
+
+
 def home_page(request):
     return render(request, 'home.html')
 

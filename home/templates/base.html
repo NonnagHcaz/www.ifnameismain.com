@@ -7,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+  <link href="{% static 'fontawesome/fontawesome-all.css' %}" rel="stylesheet">
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -66,6 +68,10 @@
         <i class="fa fa-gamepad w3-xxlarge"></i>
         <p>GAMING</p>
       </a>
+      <a href={% url 'about' %} class="w3-bar-item w3-button w3-padding-large {% block side-about %}{% endblock %}">
+        <i class="fa fa-address-card w3-xxlarge"></i>
+        <p>ABOUT</p>
+      </a>
       <a href={% url 'contact' %} class="w3-bar-item w3-button w3-padding-large {% block side-contact %}{% endblock %}">
         <i class="fa fa-envelope w3-xxlarge"></i>
         <p>CONTACT</p>
@@ -75,18 +81,19 @@
     <!-- Navbar on small screens (Hidden on medium and large screens) -->
     <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
       <div class="w3-bar w3-grey w3-opacity w3-hover-opacity-off w3-center w3-small">
-        <a href={% url 'home' %} class="w3-bar-item w3-justify w3-button {% block top-home %}{% endblock %}" style="width:20% !important">HOME</a>
-        <a href={% url 'coding' %} class="w3-bar-item w3-justify w3-button {% block top-coding %}{% endblock %}" style="width:20% !important">CODING</a>
-        <a href={% url 'music' %} class="w3-bar-item w3-justify w3-button {% block top-music %}{% endblock %}" style="width:20% !important">MUSIC</a>
-        <a href={% url 'gaming' %} class="w3-bar-item w3-justify w3-button {% block top-gaming %}{% endblock %}" style="width:20% !important">GAMING</a>
-        <a href={% url 'contact' %} class="w3-bar-item w3-justify w3-button {% block top-contact %}{% endblock %}" style="width:20% !important">CONTACT</a>
+        <a href={% url 'home' %} class="w3-bar-item w3-center w3-button {% block top-home %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-home"></i></a>
+        <a href={% url 'coding' %} class="w3-bar-item w3-center w3-button {% block top-coding %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-code"></i></a>
+        <a href={% url 'music' %} class="w3-bar-item w3-center w3-button {% block top-music %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-headphones"></i></a>
+        <a href={% url 'gaming' %} class="w3-bar-item w3-center w3-button {% block top-gaming %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-gamepad"></i></a>
+          <a href={% url 'about' %} class="w3-bar-item w3-center w3-button {% block top-about %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-address-card"></i></a>
+        <a href={% url 'contact' %} class="w3-bar-item w3-center w3-button {% block top-contact %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-envelope"></i></a>
       </div>
     </div>
 
     <!-- Page Content -->
     <div class="w3-padding-large" id="main">
       <header class="w3-container w3-padding-32 w3-center w3-black bgimg" id="header">
-        <h1 class="w3-jumbo"><i>IF __NAME__ IS __MAIN__</i></h1>
+        <h1 class="w3-xxlarge highlight"><i>IF __NAME__ IS __MAIN__</i></h1>
         <h3>{% block header %}{% endblock %}</h3>
       </header>
 

@@ -1,4 +1,13 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block top-about %}
+  w3-hover-black
+{% endblock %}
+
+{% block side-about %}
+  w3-hover-black
+{% endblock %}
 
 {% block side-gaming %}
   w3-black
@@ -45,6 +54,12 @@
 {% endblock %}
 
 {% block content %}
+    <div class="w3-content w3-center highlight w3-margin-64" id="content">
+        Join my discord server:
+        <br />
+        <a href="https://discord.gg/cmquYb2" target="_blank">https://discord.gg/cmquYb2</a>
+        <br /><br /><br />
+    </div>
     <div class="w3-center w3-margin-32" style="height: 720;" id="video_player">
         <div class="w3-row w3-hide-small">
             <div class="w3-col l1 m1 s1 w3-center"><p> </p></div>
