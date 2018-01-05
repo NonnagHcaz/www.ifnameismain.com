@@ -1,7 +1,6 @@
 from django.shortcuts import render
 
 import json
-from pprint import pprint
 
 try:
     from kharon import kharon
@@ -10,6 +9,10 @@ except:
     kharon_avail = False
 
 # from django.http import HttpResponse
+
+
+def kharon_page(request):
+    return render(request, 'kharon.html')
 
 
 def about_page(request):
