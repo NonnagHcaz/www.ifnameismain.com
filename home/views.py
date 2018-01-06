@@ -56,14 +56,17 @@ def kharon_page(request):
     preview = ''
     output = ''
     target = 'kharon.html'
+    # username = 'gannon93'
+    # reponame = 'gkit_cogs'
+    # cogname = 'basta'
+    username = request.GET.get('username_text') or 'gannon93'
+    reponame = request.GET.get('reponame_text') or 'gkit_cogs'
+    cogname = request.GET.get('cogname_text') or 'basta'
     if request.GET.get('upload_github_button'):
-        username = request.GET.get('username_text').lower()
-        reponame = request.GET.get('reponame_text').lower()
-        cogname = request.GET.get('cogname_text').lower()
         if kharon_avail:
             try:
                 preview = json.dumps(kharon.get_info(
-                    username, reponame, cogname))
+                    username.lower(), reponame.lower(), cogname.lower()))
                 target += '#upload'
             except Exception as e:
                 pass
@@ -76,4 +79,4 @@ def kharon_page(request):
     #     contents = json.loads(request.GET.get('export_output_textarea'))
     #     target += '#export'
     return render(
-        request, 'kharon.html', {'preview': preview, 'output': output})
+        request, 'kharon.html', {'preview': preview, 'output': output, 'username': username, 'reponame': reponame, 'cogname': cogname})
