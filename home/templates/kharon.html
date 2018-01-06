@@ -111,17 +111,20 @@
           <br /><br />
           <button id="upload_file_button" name="upload_file_button" value="1">Upload your info.json file...</button>
         </div>
-        <div id="upload_preview_div">
-          <br /><br />
-          Preview:
-          <br /><br />
-          <textarea id="upload_preview_textarea" name="upload_preview_textarea" rows="20" cols="72">{{preview}}</textarea>
-        </div>
+        <br />
       <hr />
       </div>
 
       <div id="convert">
-        2. Convert your info.json to...
+        2. Convert your `info.json` file
+        <br /><br />
+        <div id="upload_preview_div">
+          Preview:
+          <br /><br />
+          <textarea id="upload_preview_textarea" name="upload_preview_textarea" rows="20" cols="72">{{preview}}</textarea>
+        </div>
+        <br />
+        Convert your info.json to...
         <br /><br />
         <input type="radio" id="v3_radio" name="red_version" value="v3" checked>Red v3</input>
         <input type="radio" id = "v2_radio" name="red_version" value="v2">Red v2</input>
@@ -143,5 +146,8 @@
       </div>
     </form>
   </div>
+  {% if gotodiv %}
+    <script> window.location.hash = '#{{gotodiv}}'; </script>
+  {% endif %}
 
 {% endblock %}

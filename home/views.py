@@ -55,7 +55,7 @@ def landing_page(request):
 def kharon_page(request):
     preview = ''
     output = ''
-    target = 'kharon.html'
+    target = 'content'
     # username = 'gannon93'
     # reponame = 'gkit_cogs'
     # cogname = 'basta'
@@ -65,18 +65,18 @@ def kharon_page(request):
     if request.GET.get('upload_github_button'):
         if kharon_avail:
             try:
-                preview = json.dumps(kharon.get_info(
-                    username.lower(), reponame.lower(), cogname.lower()))
-                target += '#upload'
+                preview = json.dumps(
+                    kharon.get_info(
+                        username.lower(), reponame.lower(), cogname.lower()),
+                    sort_keys=True)
+                target = 'convert'
             except Exception as e:
                 pass
     elif request.GET.get('convert_button'):
         data = request.GET.get('upload_preview_textarea')
         preview = json.loads(data)
-        output = kharon.format_info(preview)
-        target += '#convert'
-    # elif request.GET.get('export_button'):
-    #     contents = json.loads(request.GET.get('export_output_textarea'))
-    #     target += '#export'
+        if kharon_avail:
+            output = kharon.format_info(preview)
+        target = 'export'
     return render(
-        request, 'kharon.html', {'preview': preview, 'output': output, 'username': username, 'reponame': reponame, 'cogname': cogname})
+        request, 'kharon.html', {'preview': preview, 'output': output, 'username': username, 'reponame': reponame, 'cogname': cogname, 'gotodiv': target})
