@@ -54,10 +54,16 @@
 {% endblock %}
 
 {% block content %}
+  <script src="{% static 'js/FileSaver.min.js' %}"></script>
   <script>
     function export_json() {
-      var data = document.getElementById("export_output_textarea").value;
-      alert(data)
+      var data = JSON.stringify(document.getElementById("export_output_textarea").value);
+      var blob = new Blob([data], {type: "application/octet-stream"});
+      var username = document.getElementById("username_text").value;
+      var reponame = document.getElementById("reponame_text").value;
+      var cogname = document.getElementById("cogname_text").value;
+      var filename = username + "-" + reponame + "-" + cogname + "-info.json";
+      saveAs(blob, filename);
     }
 
     function copy_json() {
@@ -95,9 +101,9 @@
           <br /><br />
           GitHub:
           <br /><br />
-          <input type="text" name="username_text" value="gannon93" onClick="this.setSelectionRange(0, this.value.length)"></input>
-          <input type="text" name="reponame_text" value="gkit_cogs" onClick="this.setSelectionRange(0, this.value.length)"></input>
-          <input type="text" name="cogname_text" value = "basta" onClick="this.setSelectionRange(0, this.value.length)"></input>
+          <input type="text" name="username_text" id="username_text" value="gannon93" onClick="this.setSelectionRange(0, this.value.length)"></input>
+          <input type="text" name="reponame_text" id="reponame_text" value="gkit_cogs" onClick="this.setSelectionRange(0, this.value.length)"></input>
+          <input type="text" name="cogname_text" id="cogname_text" value = "basta" onClick="this.setSelectionRange(0, this.value.length)"></input>
           <br /><br />
           <button type="submit" name="upload_github_button" id="upload_github_button" value="1">Retrieve info.json from GitHub...</button>
         </div>

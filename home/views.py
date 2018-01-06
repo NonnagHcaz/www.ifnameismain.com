@@ -11,10 +11,6 @@ except:
 # from django.http import HttpResponse
 
 
-def kharon_page(request):
-    return render(request, 'kharon.html')
-
-
 def about_page(request):
     return render(request, 'about.html')
 
@@ -76,8 +72,8 @@ def kharon_page(request):
         preview = json.loads(data)
         output = kharon.format_info(preview)
         target += '#convert'
-    elif request.GET.get('export_button'):
-        contents = json.loads(request.GET.get('export_output_textarea'))
-        target += '#export'
+    # elif request.GET.get('export_button'):
+    #     contents = json.loads(request.GET.get('export_output_textarea'))
+    #     target += '#export'
     return render(
         request, 'kharon.html', {'preview': preview, 'output': output})
