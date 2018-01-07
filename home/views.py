@@ -5,7 +5,7 @@ import json
 try:
     from kharon import kharon
     kharon_avail = True
-except:
+except Exception:
     kharon_avail = False
 
 # from django.http import HttpResponse
@@ -56,12 +56,11 @@ def kharon_page(request):
     preview = ''
     output = ''
     target = 'content'
-    # username = 'gannon93'
-    # reponame = 'gkit_cogs'
-    # cogname = 'basta'
+
     username = request.GET.get('username_text') or 'gannon93'
     reponame = request.GET.get('reponame_text') or 'gkit_cogs'
     cogname = request.GET.get('cogname_text') or 'basta'
+
     if request.GET.get('upload_github_button'):
         if kharon_avail:
             try:
@@ -79,4 +78,10 @@ def kharon_page(request):
             output = kharon.format_info(preview)
         target = 'export'
     return render(
-        request, 'kharon.html', {'preview': preview, 'output': output, 'username': username, 'reponame': reponame, 'cogname': cogname, 'gotodiv': target})
+        request, 'kharon.html', {
+            'preview': preview,
+            'output': output,
+            'username': username,
+            'reponame': reponame,
+            'cogname': cogname,
+            'gotodiv': target})
