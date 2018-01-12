@@ -36,9 +36,12 @@
     background-image: url("{% static 'img/bg/dark_wood.png' %}");
     background-repeat: repeat;
   }
-  .highlight { color: aqua; font-weight: bold; text-shadow: 2px 2px purple;}
+  .gk-highlight { color: aqua; font-weight: bold; text-shadow: 2px 2px purple;}
   link, a {
     text-decoration: none;
+  }
+  .gk-heading {
+    color: grey; text-decoration: underline;
   }
   </style>
 
@@ -79,7 +82,7 @@
 
     <!-- Navbar on small screens (Hidden on medium and large screens) -->
     <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-      <div class="w3-bar w3-grey w3-opacity w3-hover-opacity-off w3-center w3-small">
+      <div class="w3-bar w3-light-grey w3-opacity w3-hover-opacity-off w3-center w3-small">
         <a href={% url 'home' %} class="w3-bar-item w3-center w3-button {% block top-home %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-home"></i></a>
         <a href={% url 'coding' %} class="w3-bar-item w3-center w3-button {% block top-coding %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-code"></i></a>
         <a href={% url 'music' %} class="w3-bar-item w3-center w3-button {% block top-music %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-headphones"></i></a>
@@ -93,7 +96,7 @@
     <div class="w3-padding-large" id="main">
       <header class="w3-container w3-padding-32 w3-text-white w3-center" id="header">
         <div class="w3-row w3-hide-medium w3-hide-small">
-          <pre class="w3-threequarter highlight">
+          <pre class="w3-threequarter gk-highlight">
  __     ______      __   __     ______     __    __     ______    
 /\ \   /\  ___\    /\ "-.\ \   /\  __ \   /\ "-./  \   /\  ___\   
 \ \ \  \ \  __\    \ \ \-.  \  \ \  __ \  \ \ \-./\ \  \ \  __\   
@@ -103,7 +106,7 @@
         </div>
         <div class="w3-row w3-hide-medium w3-hide-small">
           <div class="w3-quarter w3-text-black">_</div>
-          <pre class="w3-threequarter highlight">
+          <pre class="w3-threequarter gk-highlight">
     __     ______        __    __     ______     __     __   __    
    /\ \   /\  ___\      /\ "-./  \   /\  __ \   /\ \   /\ "-.\ \   
    \ \ \  \ \___  \     \ \ \-./\ \  \ \  __ \  \ \ \  \ \ \-.  \  
@@ -112,7 +115,7 @@
           </pre>
         </div>
         <div class="w3-row w3-hide-large">
-          <h1 class="w3-col  w3-jumbo highlight"><i>IF NAME IS MAIN</i></h1>
+          <h1 class="w3-col  w3-jumbo gk-highlight"><i>IF NAME IS MAIN</i></h1>
         </div>
         <div class="w3-row">
           <h3 class="w3-col">{% block header %}{% endblock %}</h3>
