@@ -11,48 +11,48 @@ except Exception:
 # from django.http import HttpResponse
 
 
-def about_page(request):
+def about_view(request):
     return render(request, 'about.html')
 
 
-def home_page(request):
+def home_view(request):
     return render(request, 'home.html')
 
 
-def wip_page(request):
+def wip_view(request):
     return render(request, 'wip.html')
 
 
-def gaming_page(request):
+def gaming_view(request):
     return render(request, 'gaming.html')
 
 
-def music_page(request):
+def music_view(request):
     return render(request, 'music.html')
 
 
-def contact_page(request):
+def contact_view(request):
     return render(request, 'contact.html')
 
 
-def coding_page(request):
+def coding_view(request):
     return render(request, 'coding.html')
 
 
-def wd2_page(request):
+def wd2_view(request):
     return render(request, 'wd2.html')
 
 
-def landing_page(request):
+def landing_view(request):
     if 'landed' in request.COOKIES:
-        response = home_page(request)
+        response = home_view(request)
     else:
-        response = wd2_page(request)
+        response = wd2_view(request)
         response.set_cookie('landed', '1')
     return response
 
 
-def kharon_page(request):
+def kharon_view(request):
     preview = ''
     output = ''
     target = 'content'
