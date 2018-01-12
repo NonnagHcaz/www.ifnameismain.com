@@ -1,6 +1,9 @@
 from django.shortcuts import render
 
 import json
+import os
+
+import random
 
 try:
     from kharon import kharon
