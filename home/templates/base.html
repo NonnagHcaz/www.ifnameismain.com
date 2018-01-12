@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html>
-  <title>if __name__ is __main__</title>
+  <title>if name is main</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -91,9 +91,32 @@
 
     <!-- Page Content -->
     <div class="w3-padding-large" id="main">
-      <header class="w3-container w3-padding-32 w3-center w3-text-white" id="header">
-        <h1 class="w3-xxlarge highlight"><i>IF __NAME__ IS __MAIN__</i></h1>
-        <h3>{% block header %}{% endblock %}</h3>
+      <header class="w3-container w3-padding-32 w3-text-white w3-center" id="header">
+        <div class="w3-row w3-hide-medium w3-hide-small">
+          <pre class="w3-threequarter highlight">
+ __     ______      __   __     ______     __    __     ______    
+/\ \   /\  ___\    /\ "-.\ \   /\  __ \   /\ "-./  \   /\  ___\   
+\ \ \  \ \  __\    \ \ \-.  \  \ \  __ \  \ \ \-./\ \  \ \  __\   
+ \ \_\  \ \_\       \ \_\\"\_\  \ \_\ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/   \/_/        \/_/ \/_/   \/_/\/_/   \/_/  \/_/   \/_____/ 
+          </pre>
+        </div>
+        <div class="w3-row w3-hide-medium w3-hide-small">
+          <div class="w3-quarter w3-text-black">_</div>
+          <pre class="w3-threequarter highlight">
+    __     ______        __    __     ______     __     __   __    
+   /\ \   /\  ___\      /\ "-./  \   /\  __ \   /\ \   /\ "-.\ \   
+   \ \ \  \ \___  \     \ \ \-./\ \  \ \  __ \  \ \ \  \ \ \-.  \  
+    \ \_\  \/\_____\     \ \_\ \ \_\  \ \_\ \_\  \ \_\  \ \_\\"\_\ 
+     \/_/   \/_____/      \/_/  \/_/   \/_/\/_/   \/_/   \/_/ \/_/ 
+          </pre>
+        </div>
+        <div class="w3-row w3-hide-large">
+          <h1 class="w3-col  w3-jumbo highlight"><i>IF NAME IS MAIN</i></h1>
+        </div>
+        <div class="w3-row">
+          <h3 class="w3-col">{% block header %}{% endblock %}</h3>
+        </div>
       </header>
 
       {% block content %}{% endblock %}
