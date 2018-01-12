@@ -1,4 +1,4 @@
-"""personal_page URL Configuration
+"""personal_view URL Configuration
 
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -20,12 +20,12 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^wip/', views.wip_page, name='wip'),
-    url(r'^coding/', views.coding_page, name='coding'),
-    url(r'^about/', views.about_page, name='about'),
-    url(r'^music/', views.music_page, name='music'),
-    url(r'^gaming/', views.gaming_page, name='gaming'),
-    url(r'^contact/', views.contact_page, name='contact'),
-    url(r'^login/', views.wd2_page, name='wd2'),
-    url(r'^[kK]haron/', views.kharon_page, name='kharon'),
+    url(r'^wip/', views.wip_view, name='wip'),
+    url(r'^coding/', views.coding_view, name='coding'),
+    url(r'^about/', views.about_view, name='about'),
+    url(r'^music/', views.music_view, name='music'),
+    url(r'^gaming/', views.gaming_view, name='gaming'),
+    url(r'^contact/', views.contact_view, name='contact'),
+    url(r'^login/', views.wd2_view, name='wd2'),
+    url(r'^[kK]haron/', views.kharon_view, name='kharon'),
 ]
