@@ -129,11 +129,6 @@ STATICFILES_DIRS = [
 STATIC_PRECOMPILER_ROOT = STATIC_URL
 
 STATIC_PRECOMPILER_COMPILERS = (
-    'static_precompiler.compilers.CoffeeScript',
-    'static_precompiler.compilers.Babel',
-    'static_precompiler.compilers.Handlebars',
-    'static_precompiler.compilers.SASS',
-    'static_precompiler.compilers.SCSS',
-    'static_precompiler.compilers.LESS',
-    'static_precompiler.compilers.Stylus',
+    ('static_precompiler.compilers.LESS', {
+        'executable': '/home/gannon93/node_modules/less/bin/lessc'})
 )
