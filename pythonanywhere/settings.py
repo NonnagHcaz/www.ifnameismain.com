@@ -129,6 +129,5 @@ STATICFILES_DIRS = [
 STATIC_PRECOMPILER_ROOT = STATIC_URL
 
 STATIC_PRECOMPILER_COMPILERS = (
-    ('static_precompiler.compilers.LESS', {
-        'executable': '/home/gannon93/node_modules/less/bin/lessc'})
+    'static_precompiler.compilers.LESS'
 )
