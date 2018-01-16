@@ -1,56 +1,65 @@
+{% load compile_static %}
 {% load static %}
 
 <!DOCTYPE html>
 <html>
-  <title>if name is main</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-  <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+  <head>
+    <title>if name is main</title>
 
-  <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-  @font-face {
-    font-family: "Courier Prime Code";
-    src:url("{% static 'fonts/Courier Prime Code/Courier Prime Code.ttf' %}") format('ttf');
-  }
-  body, h1,h2,h3,h4,h5,h6 { font-family: "Courier Prime Code"; }
-  .w3-row-padding img { margin-bottom: 12px; }
-  /* Set the width of the sidebar to 120px */
-  .w3-sidebar { width: 120px; background: #222; }
-  /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-  #main { margin-left: 120px; }
-  /* Remove margins from "page content" on small screens */
-  @media only screen and (max-width: 600px) {
-    #main { margin-left: 0 }
-  }
-  .bgimg {
-    background-image: url("{% static 'img/bg/dark_wood.png' %}");
-    background-repeat: repeat;
-  }
-  .gk-highlight { color: aqua; font-weight: bold; text-shadow: 2px 2px purple;}
-  link, a {
-    text-decoration: none;
-  }
-  </style>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
 
-  <script>
-    function pluralize(num,singular,plural){return''+ num+' '+(num===1?singular:plural);}
-  </script>
+    <script src="{% static 'js/base.js' %}"></script>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/gk.css' %}"/>
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+
+    
+
+    <style>
+      @font-face {
+        font-family: "Courier Prime Code";
+        src:url("{% static 'fonts/Courier Prime Code/Courier Prime Code.ttf' %}") format('ttf');
+      }
+      div,body,h1,h2,h3,h4,h5,h6,p,a { font-family: "Courier Prime Code"; }
+      .w3-row-padding img { margin-bottom: 12px; }
+      /* Set the width of the sidebar to 120px */
+      .w3-sidebar { width: 120px; background: #222; }
+      /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+      #main { margin-left: 120px; }
+      /* Remove margins from "page content" on small screens */
+      @media only screen and (max-width: 600px) {
+        #main { margin-left: 0 }
+      }
+      link, a {
+        text-decoration: none;
+      }
+      .bgimg {
+        background-image: url("{% static 'img/bg/dark_wood.png' %}");
+        background-repeat: repeat;
+      }
+    </style>
+  </head>
 
   <body class="bgimg">
     <!-- Icon Bar (Sidebar - hidden on small screens) -->
-    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center" id="side-navbar">
       <!-- Avatar image in top left corner -->
       <img src="{% static 'img/avatar/avatar.jpg' %}" style="width:100%">
+
       <a href={% url 'home' %} class="w3-bar-item w3-button w3-padding-large w3-hover-black {% block side-home %}{% endblock %}">
         <i class="fa fa-home w3-xxlarge"></i>
         <p>HOME</p>
@@ -71,14 +80,14 @@
         <i class="fa fa-address-card w3-xxlarge"></i>
         <p>ABOUT</p>
       </a>
-      <a href={% url 'contact' %} class="w3-bar-item w3-button w3-hover-black w3-padding-large {% block side-contact %}{% endblock %}">
+      <a href={% url 'contact' %} class="w3-bar-item w3-button w3-padding-large w3-hover-black {% block side-contact %}{% endblock %}">
         <i class="fa fa-envelope w3-xxlarge"></i>
         <p>CONTACT</p>
       </a>
     </nav>
 
     <!-- Navbar on small screens (Hidden on medium and large screens) -->
-    <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+    <div class="w3-top w3-hide-large w3-hide-medium" id="top-navbar">
       <div class="w3-bar w3-light-grey w3-opacity w3-hover-opacity-off w3-center w3-small">
         <a href={% url 'home' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-home %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-home"></i></a>
         <a href={% url 'coding' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-coding %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-code"></i></a>
@@ -91,9 +100,9 @@
 
     <!-- Page Content -->
     <div class="w3-padding-large" id="main">
-      <header class="w3-container w3-padding-32 w3-text-white w3-center" id="header">
+      <header class="w3-container w3-padding-32 w3-text-light-grey w3-center" id="header">
         <div class="w3-row w3-hide-medium w3-hide-small">
-          <pre class="w3-threequarter gk-highlight">
+          <pre class="w3-threequarter gk-theme-hotline-miami">
  __     ______      __   __     ______     __    __     ______    
 /\ \   /\  ___\    /\ "-.\ \   /\  __ \   /\ "-./  \   /\  ___\   
 \ \ \  \ \  __\    \ \ \-.  \  \ \  __ \  \ \ \-./\ \  \ \  __\   
@@ -103,7 +112,7 @@
         </div>
         <div class="w3-row w3-hide-medium w3-hide-small">
           <div class="w3-quarter w3-text-black">_</div>
-          <pre class="w3-threequarter gk-highlight">
+          <pre class="w3-threequarter gk-theme-hotline-miami">
     __     ______        __    __     ______     __     __   __    
    /\ \   /\  ___\      /\ "-./  \   /\  __ \   /\ \   /\ "-.\ \   
    \ \ \  \ \___  \     \ \ \-./\ \  \ \  __ \  \ \ \  \ \ \-.  \  
@@ -112,7 +121,7 @@
           </pre>
         </div>
         <div class="w3-row w3-hide-large">
-          <h1 class="w3-col  w3-jumbo gk-highlight"><i>IF NAME IS MAIN</i></h1>
+          <h1 class="w3-col  w3-jumbo gk-theme-hotline-miami"><i>IF NAME IS MAIN</i></h1>
         </div>
         <div class="w3-row">
           <h3 class="w3-col">{% block header %}{% endblock %}</h3>

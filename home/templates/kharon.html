@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
+{% load static %}
 
 {% block side-coding %}
   w3-black
@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block header %}
-  <span class="gk-highlight">Coding.</span> Music. Gaming.
+  <span class="gk-theme-hotline-miami">Coding.</span> Music. Gaming.
 {% endblock %}
 
 {% block content %}
@@ -33,7 +33,7 @@
   </script>
   <!-- Use any element to open/show the overlay navigation menu -->
   <div class="w3-content w3-justify w3-text-light-grey w3-margin-32" id="content">
-    <h1 class="w3-center gk-highlight w3-jumbo">Kharon</h1>
+    <h1 class="w3-center gk-theme-hotline-miami w3-jumbo">Kharon</h1>
     Kharon is a python module (`pip install Kharon`) which will convert your Red-DiscordBot cogs' `info.json` files from v2 to v3.
     <br /><br />
     This was developed because I am lazy and didn't want to manually change all keys to `lower()`, change `authors` to be a list, or remap `DISABLED` to `hidden`.

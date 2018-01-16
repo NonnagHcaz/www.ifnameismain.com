@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
+{% load static %}
 
 {% block side-coding %}
   w3-black
@@ -10,16 +10,16 @@
 {% endblock %}
 
 {% block header %}
-  <span class="gk-highlight">Coding.</span> Music. Gaming.
+  <span class="gk-theme-hotline-miami">Coding.</span> Music. Gaming.
 {% endblock %}
 
 {% block content %}
   <div class="w3-content w3-justify w3-text-light-grey w3-margin-32" id="content">
     <hr />
-    <h2 class="w3-center gk-highlight"><a href="{% url 'kharon' %}">Click here for the Kharon live demo.</a></h2>
+    <h2 class="w3-center gk-theme-hotline-miami"><a href="{% url 'kharon' %}">Click here for the Kharon live demo.</a></h2>
     <hr />
     <br />
-    <h2 class="gk-highlight">Github Projects</h2>
+    <h2 class="gk-theme-hotline-miami">Github Projects</h2>
     <!-- Repo lookup template adapted from Adam Pritchard's webpage:
           https://crypti.cc/
     -->
@@ -38,7 +38,6 @@
               <% if (language) { %>
                 Written mostly in <%- language %>.
               <% } %>
-              Last updated <%- new Date(updated_at).toLocaleDateString() %>.
             </small>
           </div>
           <br />

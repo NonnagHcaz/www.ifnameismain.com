@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home'
+    'home',
+    'static_precompiler'
 ]
 
 MIDDLEWARE = [
@@ -119,3 +120,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+    '/var/www/static/',
+]
+
+STATIC_PRECOMPILER_ROOT = STATIC_URL
+
+STATIC_PRECOMPILER_COMPILERS = (
+    'static_precompiler.compilers.CoffeeScript',
+    'static_precompiler.compilers.Babel',
+    'static_precompiler.compilers.Handlebars',
+    'static_precompiler.compilers.SASS',
+    'static_precompiler.compilers.SCSS',
+    'static_precompiler.compilers.LESS',
+    'static_precompiler.compilers.Stylus',
+)
