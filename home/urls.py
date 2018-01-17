@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^contact/', views.contact_view, name='contact'),
     url(r'^login/', views.wd2_view, name='wd2'),
     url(r'^[kK]haron/', views.kharon_view, name='kharon'),
+    url(r'^cookies/', views.cookies_view, name='cookies')
 ]

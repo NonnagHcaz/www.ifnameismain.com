@@ -1,3 +1,5 @@
+// Wrapper for TinyTyper.js
+
 $(document).ready(function() {
     var el       = document.querySelector('#message')
     var options  = {

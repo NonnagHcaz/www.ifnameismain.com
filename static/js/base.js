@@ -1,22 +1,20 @@
+COOKIE_POLICY_COOKIE_KEY = "policy_acknowledged";
+
 function pluralize(num, singular, plural){
     return''+ num+' '+(num===1?singular:plural);}
 
-function changeTheme(filename, static) {
-    themeBaseDir =
-    newstylesheet = (
-        static + "css/gkit_css/themes/gk_theme_" + filename + ".css");
-
-    if ($("#dynamic_css").length == 0) {
-        $("head").append("<link>")
-        css = $("head").children(":last");
-
-        css.attr({
-          id: "dynamic_css",
-          rel:  "stylesheet",
-          type: "text/css",
-          href: newstylesheet
-        });
-    } else {
-        $("#dynamic_css").attr("href",newstylesheet);
-    }
+function acknowledgeCookiePolicy(){
+    createCookie(COOKIE_POLICY_COOKIE_KEY, "True", 1);
+    hideCookiePolicy();
 }
+
+function hideCookiePolicy(){
+    $("#cookie_policy_banner").hide();
+}
+
+$(function(){
+    var policy_read = readCookie(COOKIE_POLICY_COOKIE_KEY);
+    if (policy_read != null) {
+        hideCookiePolicy();
+    }
+})

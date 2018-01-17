@@ -15,6 +15,10 @@ def about_view(request):
     return render(request, 'about.html')
 
 
+def cookies_view(request):
+    return render(request, 'cookies.html')
+
+
 def home_view(request):
     return render(request, 'home.html')
 

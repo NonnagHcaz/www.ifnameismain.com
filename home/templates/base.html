@@ -14,19 +14,16 @@
       crossorigin="anonymous">
     </script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
+<!--     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script> -->
 
+    <script src="{% static 'js/cookies.js' %}"></script>
+    <script src="{% static 'js/themes.js' %}"></script>
     <script src="{% static 'js/base.js' %}"></script>
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="{% static 'css/base.css' %}"/>
-    <link id="dynamic_css" rel="stylesheet" href="{% static 'css/gkit_css/themes/theme_hotline_miami.css' %}"/>
-
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
-
-    
 
     <style>
       @font-face {
@@ -62,10 +59,22 @@
       <div class="w3-bar-item w3-dropdown-hover w3-padding-large w3-hover-black">
         <button class="w3-button">Themes...</button>
         <div class="w3-dropdown-content w3-bar-block">
-          <a href="javascript:void(0);" onclick="changeTheme('hotline_miami', '{% static '' %}');" class="w3-bar-item w3-button">Hotline Miami</a>
-          <a href="javascript:void(0);" onclick="changeTheme('matrix', '{% static '' %}');" class="w3-bar-item w3-button">Matrix</a>
-          <a href="javascript:void(0);" onclick="changeTheme('hulk', '{% static '' %}');" class="w3-bar-item w3-button">Hulk</a>
-          <a href="javascript:void(0);" onclick="changeTheme('thanos', '{% static '' %}');" class="w3-bar-item w3-button">Thanos</a>
+          <a 
+            href="javascript:void(0);" 
+            onclick="changeTheme('hotline_miami', '{% static '' %}');" 
+            class="w3-bar-item w3-button">Hotline Miami</a>
+          <a 
+            href="javascript:void(0);" 
+            onclick="changeTheme('matrix', '{% static '' %}');" 
+            class="w3-bar-item w3-button">Matrix</a>
+          <a 
+            href="javascript:void(0);" 
+            onclick="changeTheme('hulk', '{% static '' %}');" 
+            class="w3-bar-item w3-button">Hulk</a>
+          <a 
+            href="javascript:void(0);" 
+            onclick="changeTheme('thanos', '{% static '' %}');" 
+            class="w3-bar-item w3-button">Thanos</a>
         </div>
       </div>
 
@@ -110,6 +119,16 @@
     <!-- Page Content -->
     <div class="w3-padding-large" id="main">
       <header class="w3-container w3-padding-32 w3-text-light-grey w3-center" id="header">
+        <div id="cookie_policy_banner" class="w3-small w3-black">
+          <div class="w3-bar">
+            <p class="w3-bar-item">This website uses cookies to keep things like themes persistent site-wide. Please see the <a href="{% url 'cookies' %}" target="_blank">Cookie Policy</a> for further information. <a
+              class="w3-button w3-grey"
+              onclick="acknowledgeCookiePolicy();">
+              Got it!
+            </a></p>
+            
+          </div>
+        </div>
         <div class="w3-row w3-hide-medium w3-hide-small">
           <pre class="w3-threequarter gk-theme-element">
  __     ______      __   __     ______     __    __     ______    

@@ -14,23 +14,8 @@
 {% endblock %}
 
 {% block content %}
-  <script src="{% static 'js/FileSaver.min.js' %}"></script>
-  <script>
-    function export_json() {
-      var data = JSON.stringify(document.getElementById("export_output_textarea").value);
-      var blob = new Blob([data], {type: "application/octet-stream"});
-      var username = document.getElementById("username_text").value;
-      var reponame = document.getElementById("reponame_text").value;
-      var cogname = document.getElementById("cogname_text").value;
-      var filename = username + "-" + reponame + "-" + cogname + "-info.json";
-      saveAs(blob, filename);
-    }
-
-    function copy_json() {
-      var data = document.getElementById("export_output_textarea").value;
-      alert(data)
-    }
-  </script>
+  <script src="{% static 'js/lib/FileSaver.min.js' %}"></script>
+  
   <!-- Use any element to open/show the overlay navigation menu -->
   <div class="w3-content w3-justify w3-text-light-grey w3-margin-32" id="content">
     <h1 class="w3-center gk-theme-element w3-jumbo">Kharon</h1>
