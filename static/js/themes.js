@@ -1,3 +1,7 @@
+THEME_COOKIE_KEY = "theme"
+THEME_BASEDIR = "/static/css/gkit_css/themes/"
+THEME_HEAD = "gk_theme_"
+
 function changeTheme(theme) {
     newstylesheet = getSheetName(theme);
 
@@ -14,20 +18,20 @@ function changeTheme(theme) {
     } else {
         $("#dynamic_css").attr("href",newstylesheet);
     }
-    eraseCookie("theme");
-    createCookie("theme", theme, 1);
+    eraseCookie(THEME_COOKIE_KEY);
+    createCookie(THEME_COOKIE_KEY, theme, 1);
 }
 
 function getSheetName(theme) {
-    return ("/static/css/gkit_css/themes/gk_theme_" + theme + ".css");
+    return (THEME_BASEDIR + THEME_HEAD + theme + ".css");
 }
 
 $(function(){
-    ctheme = readCookie("theme");
+    ctheme = readCookie(THEME_COOKIE_KEY);
     if (ctheme != null && ctheme.length > 0) {
         changeTheme(ctheme);
     } else {
         changeTheme("hotline_miami");
-        createCookie("theme", "hotline_miami", 1)
+        createCookie(THEME_COOKIE_KEY, "hotline_miami", 1)
     }
 });
