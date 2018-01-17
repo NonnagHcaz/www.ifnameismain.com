@@ -1,10 +1,10 @@
 function pluralize(num, singular, plural){
     return''+ num+' '+(num===1?singular:plural);}
 
-function changeTheme(filename) {
-    themeBaseDir = "css/gkit_css/themes/"
+function changeTheme(filename, static) {
+    themeBaseDir =
     newstylesheet = (
-        "{% static '" + themeBaseDir + "style_" + filename + ".css' %}");
+        static + "css/gkit_css/themes/gk_theme_" + filename + ".css");
 
     if ($("#dynamic_css").length == 0) {
         $("head").append("<link>")
