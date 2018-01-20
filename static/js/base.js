@@ -11,10 +11,3 @@ function acknowledgeCookiePolicy(){
 function hideCookiePolicy(){
     $("#cookie_policy_banner").hide();
 }
-
-$(function(){
-    var policy_read = readCookie(COOKIE_POLICY_COOKIE_KEY);
-    if (policy_read != null) {
-        hideCookiePolicy();
-    }
-})

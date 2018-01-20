@@ -26,12 +26,14 @@ function getSheetName(theme) {
     return (THEME_BASEDIR + THEME_HEAD + theme + ".css");
 }
 
-$(function(){
-    ctheme = readCookie(THEME_COOKIE_KEY);
-    if (ctheme != null && ctheme.length > 0) {
-        changeTheme(ctheme);
-    } else {
-        changeTheme("hotline_miami");
-        createCookie(THEME_COOKIE_KEY, "hotline_miami", 1)
-    }
-});
+function loadThemes(json_path, static_path) {
+    $.getJSON(json_path, function(data) {
+        $.each(data, function(index, element) {
+            $("#theme-dropdown-items").append(
+                $("<a>", {
+                    href: "javascript:void(0);",
+                    onclick: "changeTheme('" + element.key + "');",
+                    class: "w3-bar-item w3-button",
+                    text: element.canonical
+                }));});});
+}
