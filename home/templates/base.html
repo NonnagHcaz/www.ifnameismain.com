@@ -56,28 +56,6 @@
       <!-- Avatar image in top left corner -->
       <img src="{% static 'img/avatar/avatar.jpg' %}" style="width:100%">
 
-      <div class="w3-bar-item w3-dropdown-hover w3-padding-large w3-hover-black">
-        <a class="w3-button w3-padding-large">Themes...</a>
-        <div class="w3-dropdown-content w3-bar-block">
-          <a 
-            href="javascript:void(0);" 
-            onclick="changeTheme('hotline_miami', '{% static '' %}');" 
-            class="w3-bar-item w3-button">Hotline Miami</a>
-          <a 
-            href="javascript:void(0);" 
-            onclick="changeTheme('matrix', '{% static '' %}');" 
-            class="w3-bar-item w3-button">Matrix</a>
-          <a 
-            href="javascript:void(0);" 
-            onclick="changeTheme('hulk', '{% static '' %}');" 
-            class="w3-bar-item w3-button">Hulk</a>
-          <a 
-            href="javascript:void(0);" 
-            onclick="changeTheme('thanos', '{% static '' %}');" 
-            class="w3-bar-item w3-button">Thanos</a>
-        </div>
-      </div>
-
       <a href={% url 'home' %} class="w3-bar-item w3-button w3-padding-large w3-hover-black {% block side-home %}{% endblock %}">
         <i class="fa fa-home w3-xxlarge"></i>
         <p>HOME</p>
@@ -166,6 +144,27 @@
           <a href="https://www.twitch.tv/gannon93" target="_blank"><i class="fab fa-twitch w3-hover-opacity"></i></a>
           <a href="https://twitter.com/AGuyNamedGannon" target="_blank"><i class="fab fa-twitter w3-hover-opacity"></i></a>
         </div>
+        <div class="w3-bar-item w3-dropdown-hover w3-padding-large w3-hover-black">
+        <a class="w3-button w3-padding-large">Themes...</a>
+        <div class="w3-dropdown-content w3-bar-block">
+          <a 
+            href="javascript:void(0);" 
+            onclick="changeTheme('hotline_miami', '{% static '' %}');" 
+            class="w3-bar-item w3-button">Hotline Miami</a>
+          <a 
+            href="javascript:void(0);" 
+            onclick="changeTheme('matrix', '{% static '' %}');" 
+            class="w3-bar-item w3-button">Matrix</a>
+          <a 
+            href="javascript:void(0);" 
+            onclick="changeTheme('hulk', '{% static '' %}');" 
+            class="w3-bar-item w3-button">Hulk</a>
+          <a 
+            href="javascript:void(0);" 
+            onclick="changeTheme('thanos', '{% static '' %}');" 
+            class="w3-bar-item w3-button">Thanos</a>
+        </div>
+      </div>
         <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
       </footer>
     </div>
