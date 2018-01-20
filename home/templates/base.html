@@ -72,7 +72,12 @@
     <!-- Icon Bar (Sidebar - hidden on small screens) -->
     <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center" id="side-navbar">
       <!-- Avatar image in top left corner -->
-      <img src="{% static 'img/avatar/avatar.jpg' %}" style="width:100%">
+      <div id="theme-dropdown-side" class="w3-dropdown-hover">
+        <img src="{% static 'img/avatar/avatar.jpg' %}" style="width:100%">
+        <div id="theme-dropdown-side-items" class="w3-dropdown-content w3-bar-block theme-dropdown-items">
+          <b class="w3-bar-item w3-black">THEMES</b>
+        </div>
+      </div>
 
       <a href={% url 'home' %} class="w3-bar-item w3-button w3-padding-large w3-hover-black {% block side-home %}{% endblock %}">
         <i class="fa fa-home w3-xxlarge"></i>
@@ -103,12 +108,18 @@
     <!-- Navbar on small screens (Hidden on medium and large screens) -->
     <div class="w3-top w3-hide-large w3-hide-medium" id="top-navbar">
       <div class="w3-bar w3-light-grey w3-opacity w3-hover-opacity-off w3-center w3-small">
-        <a href={% url 'home' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-home %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-home"></i></a>
-        <a href={% url 'coding' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-coding %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-code"></i></a>
-        <a href={% url 'music' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-music %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-headphones"></i></a>
-        <a href={% url 'gaming' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-gaming %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-gamepad"></i></a>
-          <a href={% url 'about' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-about %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-address-card"></i></a>
-        <a href={% url 'contact' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-contact %}{% endblock %}" style="width:16.6666666667% !important"><i class="fa fa-envelope"></i></a>
+        <div id="theme-dropdown-top" class="w3-bar-item w3-center w3-dropdown-hover" style="width:14.2857142857% !important">
+          <i class="fas fa-paint-brush"></i>
+          <div id="theme-dropdown-top-items" class="w3-dropdown-content w3-bar-block theme-dropdown-items">
+            <b class="w3-bar-item w3-black">THEMES</b>
+          </div>
+        </div>
+        <a href={% url 'home' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-home %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-home"></i></a>
+        <a href={% url 'coding' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-coding %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-code"></i></a>
+        <a href={% url 'music' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-music %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-headphones"></i></a>
+        <a href={% url 'gaming' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-gaming %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-gamepad"></i></a>
+          <a href={% url 'about' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-about %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-address-card"></i></a>
+        <a href={% url 'contact' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-contact %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-envelope"></i></a>
       </div>
     </div>
 
@@ -167,10 +178,10 @@
           <a href="https://twitter.com/AGuyNamedGannon" target="_blank"><i class="fab fa-twitter w3-hover-opacity"></i></a>
         </div>
 
-        <div class="w3-dropdown-hover">
+<!--         <div id="theme-dropdown-footer" class="w3-dropdown-hover w3-hide-large w3-hide-medium">
           <a class="w3-button w3-light-grey"><i class="fa fa-arrow-down w3-margin-right"></i>Themes...</a>
-          <div id="theme-dropdown-items" class="w3-dropdown-content w3-bar-block"></div>
-        </div>
+          <div id="theme-dropdown-footer-items" class="w3-dropdown-content w3-bar-block theme-dropdown-items"></div>
+        </div> -->
 
         <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
       </footer>

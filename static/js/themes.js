@@ -29,11 +29,19 @@ function getSheetName(theme) {
 function loadThemes(json_path, static_path) {
     $.getJSON(json_path, function(data) {
         $.each(data, function(index, element) {
-            $("#theme-dropdown-items").append(
+            $("#theme-dropdown-top-items").append(
                 $("<a>", {
-                    href: "javascript:void(0);",
-                    onclick: "changeTheme('" + element.key + "');",
-                    class: "w3-bar-item w3-button",
-                    text: element.canonical
-                }));});});
+                href: "javascript:void(0);",
+                onclick: "changeTheme('" + element.key + "');",
+                class: "w3-bar-item w3-button",
+                text: element.canonical
+            }));
+            $("#theme-dropdown-side-items").append(
+                $("<a>", {
+                href: "javascript:void(0);",
+                onclick: "changeTheme('" + element.key + "');",
+                class: "w3-bar-item w3-button",
+                text: element.canonical
+            }));
+        });});
 }
