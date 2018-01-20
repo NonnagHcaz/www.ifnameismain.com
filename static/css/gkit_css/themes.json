@@ -18,5 +18,13 @@
     {
         "canonical": "Matrix",
         "key": "matrix"
+    },
+    {
+        "canonical": "Lucio",
+        "key": "lucio"
+    },
+    {
+        "canonical": "Carbon Gold",
+        "key": "carbon_gold"
     }
 ]
