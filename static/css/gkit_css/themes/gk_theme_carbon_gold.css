@@ -1,2 +1,8 @@
+/*
+ *  Author: Gannon
+ *  Canonical: Carbon Gold
+ *  Key: carbon_gold
+ */
+
 .gk-theme-text-element { color: gold; text-shadow: 2px 2px #343434; }
 .gk-theme-text-element-inverted { color: #343434; text-shadow: 2px 2px gold; }
