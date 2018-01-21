@@ -1,37 +1,44 @@
 [
     {
         "author": "Gannon",
-        "canonical": "Hotline Miami",
-        "key": "hotline_miami"
+        "name": "Carbon Gold",
+        "id": "carbon_gold",
+        "tags": []
     },
     {
         "author": "Gannon",
-        "canonical": "Hulk",
-        "key": "hulk"
+        "name": "Hotline Miami",
+        "id": "hotline_miami",
+        "tags": ["games", "hotline miami"]
     },
     {
         "author": "Gannon",
-        "canonical": "Thanos",
-        "key": "thanos"
+        "name": "Hulk",
+        "id": "hulk",
+        "tags": ["comics", "marvel", "hero"]
     },
     {
         "author": "Gannon",
-        "canonical": "Iron Man",
-        "key": "iron_man"
+        "name": "Iron Man",
+        "id": "iron_man",
+        "tags": ["comics", "marvel", "hero"]
     },
     {
         "author": "Gannon",
-        "canonical": "Matrix",
-        "key": "matrix"
+        "name": "Lucio",
+        "id": "lucio",
+        "tags": ["games", "overwatch"]
     },
     {
         "author": "Gannon",
-        "canonical": "Lucio",
-        "key": "lucio"
+        "name": "Matrix",
+        "id": "matrix",
+        "tags": ["movies", "the matrix"]
     },
     {
         "author": "Gannon",
-        "canonical": "Carbon Gold",
-        "key": "carbon_gold"
+        "name": "Thanos",
+        "id": "thanos",
+        "tags": ["comics", "marvel", "anti-hero"]
     }
 ]

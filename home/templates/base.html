@@ -33,20 +33,19 @@
       var json_path = "{% static 'css/gkit_css/themes.json' %}";
       var static_path = "{% get_static_prefix %}";
       $(function(){
-        loadThemes(json_path, static_path);
+        
+        var ctheme = readCookie(THEME_COOKIE_KEY);
+        if (ctheme == null || ctheme.length <= 0) {
+          ctheme = "hotline_miami";
+          createCookie(THEME_COOKIE_KEY, ctheme);
+        }
+        changeTheme(ctheme, json_path, static_path);
 
         var policy_read = readCookie(COOKIE_POLICY_COOKIE_KEY);
         if (policy_read != null) {
           hideCookiePolicy();
         }
 
-        var ctheme = readCookie(THEME_COOKIE_KEY);
-        if (ctheme != null && ctheme.length > 0) {
-          changeTheme(ctheme, static_path);
-        } else {
-          changeTheme("hotline_miami", static_path);
-          createCookie(THEME_COOKIE_KEY, "hotline_miami", 1)
-        }
       });
     </script>
 
@@ -80,7 +79,7 @@
         background-repeat: repeat;
       }
     </style>
-    <link id="dynamic_css" rel="stylesheet" type="text/css" href="{% static 'css/gkit_css/themes/gk_theme_hotline_miami.css' %}">
+<!--     <link id="dynamic_css" rel="stylesheet" type="text/css" href="{% static 'css/gkit_css/themes/gk_theme_hotline_miami.css' %}"> -->
   </head>
 
   <body class="bgimg">

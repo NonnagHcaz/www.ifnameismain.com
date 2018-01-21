@@ -5,7 +5,7 @@ function createCookie(name, value, days) {
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         var expires = "; expires=" + date.toGMTString();
     }
-    else var expires = "";
+    else var expires = "; expires=2019-12-31T23:59:59.000Z";
 
     document.cookie = name + "=" + value + expires + "; path=/";
 }
