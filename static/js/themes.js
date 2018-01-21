@@ -40,12 +40,13 @@ function loadThemes(json_path, static_path) {
                 is_selected = "";
             }
             $("#theme-dropdown-top-items").append(
-                $("<a>", {
+              $("<a>", {
                 href: "javascript:void(0);",
                 onclick: "changeTheme('" + element.id + "', '" + json_path +"', '" + static_path + "');",
                 class: "w3-bar-item w3-button theme-dropdown-item" + is_selected,
                 text: element.name
-            }));
+              })
+            );
             $("#theme-dropdown-side-items").append(
                 $("<a>", {
                 href: "javascript:void(0);",

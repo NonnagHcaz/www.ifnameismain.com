@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Author, Theme
 
 import json
 
@@ -9,9 +10,112 @@ except Exception:
     kharon_avail = False
 
 # from django.http import HttpResponse
+THEMES = [
+    {
+        "author": ["Gannon"],
+        "name": "Carbon Gold",
+        "id": "carbon_gold",
+        "primary": "gold",
+        "secondary": "#343434",
+        "tags": []
+    },
+    {
+        "author": ["Gannon"],
+        "name": "Doctor Doom",
+        "id": "doom",
+        "primary": "silver",
+        "secondary": "darkgreen",
+        "tags": ["comics", "marvel", "fantastic 4", "anti-hero"]
+    },
+    {
+        "author": ["Gannon"],
+        "name": "Galactus",
+        "id": "galactus",
+        "primary": "slateblue",
+        "secondary": "darkmagenta",
+        "tags": ["comics", "marvel", "x-men", "anti-hero"]
+    },
+    {
+        "author": ["Gannon"],
+        "name": "Hotline Miami",
+        "id": "hotline_miami",
+        "primary": "aqua",
+        "secondary": "purple",
+        "tags": ["games", "hotline miami"]
+    },
+    {
+        "author": ["Gannon"],
+        "name": "Hulk",
+        "id": "hulk",
+        "primary": "green",
+        "secondary": "purple",
+        "tags": ["comics", "marvel", "avengers", "hero"]
+    },
+    {
+        "author": ["Gannon"],
+        "name": "Iron Man",
+        "id": "iron_man",
+        "primary": "#beba46",
+        "secondary": "#771414",
+        "tags": ["comics", "marvel", "avengers", "hero"]
+    },
+    {
+        "author": ["Gannon"],
+        "name": "Loki",
+        "id": "loki",
+        "primary": "goldenrod",
+        "secondary": "darkolivegreen",
+        "tags": ["comics", "marvel", "avengers", "anti-hero"]
+    },
+    {
+        "author": ["Gannon"],
+        "name": "Lucio",
+        "id": "lucio",
+        "primary": "yellow",
+        "secondary": "green",
+        "tags": ["games", "overwatch"]
+    },
+    {
+        "author": ["Gannon"],
+        "name": "Magneto",
+        "id": "magneto",
+        "primary": "#c70039",
+        "secondary": "#581845",
+        "tags": ["comics", "marvel", "x-men", "anti-hero"]
+    },
+    {
+        "author": ["Gannon"],
+        "name": "Matrix",
+        "id": "matrix",
+        "primary": "green",
+        "secondary": "black",
+        "tags": ["movies", "the matrix"]
+    },
+    {
+        "author": ["Gannon"],
+        "name": "Thanos",
+        "id": "thanos",
+        "primary": "gold",
+        "secondary": "#1a43d4",
+        "tags": ["comics", "marvel", "infinity saga", "anti-hero"]
+    }
+]
 
 
 def themes_view(request):
+    # Theme.objects.all().delete()
+    # for theme in THEMES:
+    #     new_theme = Theme(
+    #         key=theme['id'],
+    #         name=theme['name'],
+    #         primary=theme['primary'],
+    #         secondary=theme['secondary'])
+    #     new_theme.save()
+    # themes = Theme.objects.all()
+    # print('\n' + '*' * 72 + '\n')
+    # for theme in themes:
+    #     print(str(theme))
+    # print('\n' + '*' * 72 + '\n')
     return render(request, 'themes.html')
 
 
