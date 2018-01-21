@@ -73,12 +73,7 @@ def _render(request, target, **kwargs):
 
     primary = request.GET.get('primary')
     secondary = request.GET.get('secondary')
-
-    if 'theme' in request.COOKIES:
-        theme = request.COOKIES['theme']
-
-    if request.GET.get('theme_name'):
-        theme = request.GET.get('theme_name')
+    theme = request.GET.get('theme_name')
 
     try:
         theme_model = Theme.objects.get(key=theme)
