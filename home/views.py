@@ -52,7 +52,7 @@ def wd2_view(request):
 
 
 def landing_view(request):
-    if 'landed' in request.COOKIES:
+    if 'landed' in request.COOKIES or request.user_agent.is_touch_capable:
         response = home_view(request)
     elif not request.user_agent.is_touch_capable:
         response = wd2_view(request)
