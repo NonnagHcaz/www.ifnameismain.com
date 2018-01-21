@@ -7,6 +7,18 @@
     },
     {
         "author": "Gannon",
+        "name": "Doctor Doom",
+        "id": "doom",
+        "tags": ["comics", "marvel", "fantastic 4", "anti-hero"]
+    },
+    {
+        "author": "Gannon",
+        "name": "Galactus",
+        "id": "galactus",
+        "tags": ["comics", "marvel", "x-men", "anti-hero"]
+    },
+    {
+        "author": "Gannon",
         "name": "Hotline Miami",
         "id": "hotline_miami",
         "tags": ["games", "hotline miami"]
@@ -15,19 +27,31 @@
         "author": "Gannon",
         "name": "Hulk",
         "id": "hulk",
-        "tags": ["comics", "marvel", "hero"]
+        "tags": ["comics", "marvel", "avengers", "hero"]
     },
     {
         "author": "Gannon",
         "name": "Iron Man",
         "id": "iron_man",
-        "tags": ["comics", "marvel", "hero"]
+        "tags": ["comics", "marvel", "avengers", "hero"]
+    },
+    {
+        "author": "Gannon",
+        "name": "Loki",
+        "id": "loki",
+        "tags": ["comics", "marvel", "avengers", "anti-hero"]
     },
     {
         "author": "Gannon",
         "name": "Lucio",
         "id": "lucio",
         "tags": ["games", "overwatch"]
+    },
+    {
+        "author": "Gannon",
+        "name": "Magneto",
+        "id": "magneto",
+        "tags": ["comics", "marvel", "x-men", "anti-hero"]
     },
     {
         "author": "Gannon",
@@ -39,6 +63,6 @@
         "author": "Gannon",
         "name": "Thanos",
         "id": "thanos",
-        "tags": ["comics", "marvel", "anti-hero"]
+        "tags": ["comics", "marvel", "infinity saga", "anti-hero"]
     }
 ]

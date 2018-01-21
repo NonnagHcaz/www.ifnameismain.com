@@ -1,0 +1,8 @@
+/*
+ *  Author: Gannon
+ *  Canonical: Loki
+ *  Key: loki
+ */
+
+.gk-theme-text-element { color: silver; text-shadow: 2px 2px darkgreen; }
+.gk-theme-text-element-inverted { color: darkgreen; text-shadow: 2px 2px silver; }
