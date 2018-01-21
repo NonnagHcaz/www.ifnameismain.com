@@ -30,29 +30,11 @@
 
     <!-- jQuery to run on `ready()` for each page. -->
     <script>
-      var json_path = "{% static 'css/gkit_css/themes.json' %}";
-      var static_path = "{% get_static_prefix %}";
       $(function(){
-        // loadThemes({{gk_theme_data}});
-        
-        // var ctheme = readCookie(THEME_COOKIE_KEY);
-        // var cprimary = readCookie(PRIMARY_COOKIE_KEY);
-        // var csecondary = readCookie(SECONDARY_COOKIE_KEY);
-        // if (ctheme == null || ctheme.length <= 0) {
-        //   ctheme = "hotline_miami";
-        //   cprimary = "aqua";
-        //   csecondary = "purple";
-        //   createCookie(THEME_COOKIE_KEY, ctheme);
-        //   createCookie(PRIMARY_COOKIE_KEY, cprimary);
-        //   createCookie(SECONDARY_COOKIE_KEY, csecondary);
-        // }
-        // changeTheme(ctheme, cprimary, csecondary, json_path, static_path);
-
         var policy_read = readCookie(COOKIE_POLICY_COOKIE_KEY);
         if (policy_read != null) {
           hideCookiePolicy();
         }
-
       });
     </script>
 
