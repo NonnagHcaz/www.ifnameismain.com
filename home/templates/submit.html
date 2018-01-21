@@ -7,23 +7,40 @@
 
 {% block content %}
   <div class="w3-content w3-justify w3-text-light-grey w3-margin-32" id="content">
+    <script src="{% static 'js/lib/spectrum.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/lib/spectrum.css' %}">
+
     <h2 class="gk-theme-text">Submit Your Theme!</h2>
     <div class="w3-row">
       <div class="w3-col w3-quarter">
         <form>
           <h3 class="gk-theme-text">THEME NAME: </h3>
-          <input type="text" id="theme_text" name="theme_name" onClick="this.setSelectionRange(0, this.value.length)" />
+          <input type="text" id="theme_text" name="theme_name" />
           <br /><br />
 
           <h3 class="gk-theme-text">PRIMARY COLOR: </h3>
-          <input type="text" id="primary_text" name="primary" onClick="this.setSelectionRange(0, this.value.length)" />
+          <input type="text" id="primary_text" name="primary" class="sp-input" />
           <br /><br />
 
           <h3 class="gk-theme-text">SECONDARY COLOR: </h3>
-          <input type="text" id="secondary_text" name="secondary" onClick="this.setSelectionRange(0, this.value.length)" />
+          <input type="text" id="secondary_text" name="secondary" class="sp-input" />
           <br /><br /><br />
           <input type="submit" id="button_test" name="button_test" value="Test" />
         </form>
+        <script>
+          $(".sp-input").spectrum({
+            color: "grey",
+            preferredFormat: "hex",
+            clickoutFiresChange: true,
+            // showInitial: true,
+            showInput: true,
+            showPaletteOnly: true,
+            togglePaletteOnly: true,
+            togglePaletteMoreText: 'more',
+            togglePaletteLessText: 'less',
+            localStorageKey: "spectrum.homepage"
+          });
+        </script>
       </div>
     </div>
   </div>
