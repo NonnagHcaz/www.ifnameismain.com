@@ -100,7 +100,7 @@
           <!-- <b class="w3-bar-item ">THEMES</b> -->
           <a class="w3-bar-item w3-button w3-black" href={% url 'themes' %}><b>THEMES</b></a>
             {% for element in gk_theme_data %}
-              <a href="javascript:void(0);" onclick="changeTheme('{{element.key}}', '{{element.primary}}', '{{element.secondary}}');" class="w3-bar-item w3-button theme-dropdown-item">{{element.name}}</a>
+              <a id="theme-dropdown-side-item-{{element.key}}" href="javascript:void(0);" onclick="changeTheme('{{element.key}}', '{{element.primary}}', '{{element.secondary}}');" class="w3-bar-item w3-button theme-dropdown-item">{{element.name}}</a>
             {% endfor %}
         </div>
       </div>
@@ -140,7 +140,7 @@
             <!-- <b class="w3-bar-item w3-black">THEMES</b> -->
             <a class="w3-bar-item w3-button w3-black" href={% url 'themes' %}><b>THEMES</b></a>
             {% for element in gk_theme_data %}
-              <a href="javascript:void(0);" onclick="changeTheme('{{element.key}}', '{{element.primary}}', '{{element.secondary}}');" class="w3-bar-item w3-button theme-dropdown-item">{{element.name}}</a>
+              <a id="theme-dropdown-side-item-{{element.key}}" href="javascript:void(0);" onclick="changeTheme('{{element.key}}', '{{element.primary}}', '{{element.secondary}}');" class="w3-bar-item w3-button theme-dropdown-item">{{element.name}}</a>
             {% endfor %}
           </div>
         </div>

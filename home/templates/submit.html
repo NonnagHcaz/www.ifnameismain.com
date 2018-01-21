@@ -11,48 +11,32 @@
   <div class="w3-content w3-justify w3-text-light-grey w3-margin-32" id="content">
     <h2 class="gk-theme-text-element">Submit Your Theme!</h2>
 
-    <form>
 <!--       <div class="w3-row">
-        <div class="w3-col w3-half">
           <h3 class="gk-theme-text-element">AUTHOR: </h3>
-        </div>
-        <div class="w3-col w3-rest">
+        <br />
           <input type="text" id="author_text" name="author_text" value="Author" onClick="this.setSelectionRange(0, this.value.length)" />
         </div>
       </div> -->
       <div class="w3-row">
-        <div class="w3-col w3-half">
-          <h3 class="gk-theme-text-element">THEME NAME: </h3>
-        </div>
-        <div class="w3-col w3-rest">
-          <input type="text" id="theme_text" name="theme_name" onClick="this.setSelectionRange(0, this.value.length)" />
-        </div>
-      </div>
-      <div class="w3-row">
-        <div class="w3-col w3-half">
-          <h3 class="gk-theme-text-element">PRIMARY COLOR: </h3>
-        </div>
-        <div class="w3-col w3-rest">
-          <input type="text" id="primary_text" name="primary" onClick="this.setSelectionRange(0, this.value.length)" />
-        </div>
-      </div>
-      <div class="w3-row">
-        <div class="w3-col w3-half">
-          <h3 class="gk-theme-text-element">SECONDARY COLOR: </h3>
-        </div>
-        <div class="w3-col w3-rest">
-          <input type="text" id="secondary_text" name="secondary" onClick="this.setSelectionRange(0, this.value.length)" />
-        </div>
-      </div>
-      <br />
-      <div class="w3-row">
-        <div class="w3-col">
-          <input type="submit" id="button_test" name="button_test" value="Test" />
+        <div class="w3-col w3-quarter">
+          <form>
+            <h3 class="gk-theme-text-element">THEME NAME: </h3>
+            <input type="text" id="theme_text" name="theme_name" onClick="this.setSelectionRange(0, this.value.length)" />
+            <br /><br />
+
+            <h3 class="gk-theme-text-element">PRIMARY COLOR: </h3>
+            <input type="text" id="primary_text" name="primary" onClick="this.setSelectionRange(0, this.value.length)" />
+            <br /><br />
+
+            <h3 class="gk-theme-text-element">SECONDARY COLOR: </h3>
+            <input type="text" id="secondary_text" name="secondary" onClick="this.setSelectionRange(0, this.value.length)" />
+            <br /><br /><br />
+            <input type="submit" id="button_test" name="button_test" value="Test" />
+          </form>
         </div>
       </div>
 
         
-    </form>
   </div>
 
 {% endblock %}

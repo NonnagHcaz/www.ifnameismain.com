@@ -15,19 +15,6 @@ except Exception:
 
 
 def themes_view(request):
-    # Theme.objects.all().delete()
-    # for theme in THEMES:
-    #     new_theme = Theme(
-    #         key=theme['id'],
-    #         name=theme['name'],
-    #         primary=theme['primary'],
-    #         secondary=theme['secondary'])
-    #     new_theme.save()
-    # themes = Theme.objects.all()
-    # print('\n' + '*' * 72 + '\n')
-    # for theme in themes:
-    #     print(str(theme))
-    # print('\n' + '*' * 72 + '\n')
     return _render(request, 'themes.html')
 
 
@@ -81,29 +68,33 @@ def submit_view(request):
 
 
 def _render(request, target, **kwargs):
-    theme = 'hotline_miami'
-    primary = 'aqua'
-    secondary = 'purple'
+
+    theme = ''
+
+    primary = request.GET.get('primary')
+    secondary = request.GET.get('secondary')
+
     if 'theme' in request.COOKIES:
         theme = request.COOKIES['theme']
 
+    if request.GET.get('theme_name'):
+        theme = request.GET.get('theme_name')
+
     try:
         theme_model = Theme.objects.get(key=theme)
-    except:
+    except Exception:
         theme_model = None
 
-    gp_color = request.GET.get('primary')
-    gs_color = request.GET.get('secondary')
-    if gp_color and gs_color:
-        primary = gp_color
-        secondary = gs_color
-        theme = request.GET.get('theme_name')
-    elif theme_model:
-        primary = theme_model.primary
-        secondary = theme_model.secondary
-    elif 'primary' in request.COOKIES and 'secondary' in request.COOKIES:
-        primary = request.COOKIES['primary']
-        secondary = request.COOKIES['secondary']
+    if not (primary and secondary):
+        if theme_model:
+            primary = theme_model.primary
+            secondary = theme_model.secondary
+        elif 'primary' in request.COOKIES and 'secondary' in request.COOKIES:
+            primary = request.COOKIES['primary']
+            secondary = request.COOKIES['secondary']
+        else:
+            primary = 'aqua'
+            secondary = 'purple'
 
     kwargs['gk_theme_primary'] = primary
     kwargs['gk_theme_secondary'] = secondary
@@ -117,7 +108,7 @@ def _render(request, target, **kwargs):
     return response
 
 
-def kharon_view(request):
+def kharon_controller(request):
     preview = ''
     output = ''
     target = 'content'
@@ -142,11 +133,18 @@ def kharon_view(request):
         if kharon_avail:
             output = kharon.format_info(preview)
         target = 'export'
-    return render(
-        request, 'kharon.html', {
-            'preview': preview,
-            'output': output,
-            'username': username,
-            'reponame': reponame,
-            'cogname': cogname,
-            'gotodiv': target})
+
+    kwargs = {
+        'preview': preview,
+        'output': output,
+        'username': username,
+        'reponame': reponame,
+        'cogname': cogname,
+        'gotodiv': target}
+    return kwargs
+
+
+def kharon_view(request):
+    kwargs = kharon_controller(request)
+    return _render(
+        request, 'kharon.html', **kwargs)
