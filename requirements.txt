@@ -1,3 +1,4 @@
 django
 django-static-precompiler
+django-user-agents
 Kharon
