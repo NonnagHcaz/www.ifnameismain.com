@@ -11,6 +11,10 @@ except Exception:
 # from django.http import HttpResponse
 
 
+def themes_view(request):
+    return render(request, 'themes.html')
+
+
 def about_view(request):
     return render(request, 'about.html')
 
@@ -54,6 +58,10 @@ def landing_view(request):
         response = wd2_view(request)
         response.set_cookie('landed', '1')
     return response
+
+
+def submit_view(request):
+    return render(request, 'submit.html')
 
 
 def kharon_view(request):

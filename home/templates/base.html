@@ -75,7 +75,8 @@
       <div id="theme-dropdown-side" class="w3-dropdown-hover">
         <img src="{% static 'img/avatar/avatar.jpg' %}" style="width:100%">
         <div id="theme-dropdown-side-items" class="w3-dropdown-content w3-bar-block theme-dropdown-items">
-          <b class="w3-bar-item w3-black">THEMES</b>
+          <!-- <b class="w3-bar-item ">THEMES</b> -->
+          <a class="w3-bar-item w3-button w3-black" href={% url 'themes' %}><b>THEMES</b></a>
         </div>
       </div>
 
