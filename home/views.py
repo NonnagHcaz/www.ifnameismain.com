@@ -80,16 +80,37 @@ def submit_view(request):
 
 def _render(request, target, **kwargs):
     theme = 'hotline_miami'
+    primary = 'aqua'
+    secondary = 'purple'
     if 'theme' in request.COOKIES:
         theme = request.COOKIES['theme']
-    # else:
-    #     request.set_cookie('theme', theme, 1)
 
-    theme_model = Theme.objects.get(key=theme)
+    try:
+        theme_model = Theme.objects.get(key=theme)
+    except:
+        theme_model = None
 
-    kwargs['gk_theme_primary'] = theme_model.primary
-    kwargs['gk_theme_secondary'] = theme_model.secondary
-    return render(request, target, kwargs)
+    gp_color = request.GET.get('primary')
+    gs_color = request.GET.get('secondary')
+    if gp_color and gs_color:
+        primary = gp_color
+        secondary = gs_color
+        theme = request.GET.get('theme_name')
+    elif theme_model:
+        primary = theme_model.primary
+        secondary = theme_model.secondary
+    elif 'primary' in request.COOKIES and 'secondary' in request.COOKIES:
+        primary = request.COOKIES['primary']
+        secondary = request.COOKIES['secondary']
+
+    kwargs['gk_theme_primary'] = primary
+    kwargs['gk_theme_secondary'] = secondary
+
+    response = render(request, target, kwargs)
+    response.set_cookie('theme', theme)
+    response.set_cookie('primary', primary)
+    response.set_cookie('secondary', secondary)
+    return response
 
 
 def kharon_view(request):

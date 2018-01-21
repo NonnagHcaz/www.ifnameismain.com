@@ -1,25 +1,19 @@
 THEME_COOKIE_KEY = "theme"
+PRIMARY_COOKIE_KEY = "primary"
+SECONDARY_COOKIE_KEY = "secondary"
 THEME_BASEDIR = "css/gkit_css/themes/"
 THEME_FILE = "/theme.css"
 
-function changeTheme(theme, json_path, static_path) {
-    newstylesheet = getSheetName(theme, static_path);
-
-    // if ($("#dynamic_css").length == 0) {
-    //     $("head").append("<link>")
-    //     css = $("head").children(":last");
-
-    //     css.attr({
-    //       id: "dynamic_css",
-    //       rel:  "stylesheet",
-    //       type: "text/css",
-    //       href: newstylesheet
-    //     });
-    // } else {
-    //     $("#dynamic_css").attr("href",newstylesheet);
-    // }
-    eraseCookie(THEME_COOKIE_KEY);
+function changeTheme(theme, primary, secondary, json_path, static_path) {
+    $(".gk-theme-text-element").css(
+        "color", primary
+    );
+    $(".gk-theme-text-element").css(
+        "text-shadow", "2px 2px " + secondary
+    );
     createCookie(THEME_COOKIE_KEY, theme);
+    createCookie(PRIMARY_COOKIE_KEY, primary);
+    createCookie(SECONDARY_COOKIE_KEY, secondary);
     loadThemes(json_path, static_path);
 }
 
@@ -29,8 +23,7 @@ function getSheetName(theme, static_path) {
 
 function loadThemes(json_path, static_path) {
     var curr_theme = readCookie(THEME_COOKIE_KEY);
-    // $("#theme-dropdown-top-items").empty();
-    // $("#theme-dropdown-side-items").empty();
+
     $(".theme-dropdown-item").remove();
     $.getJSON(json_path, function(data) {
         $.each(data, function(index, element) {
@@ -42,7 +35,7 @@ function loadThemes(json_path, static_path) {
             $("#theme-dropdown-top-items").append(
               $("<a>", {
                 href: "javascript:void(0);",
-                onclick: "changeTheme('" + element.id + "', '" + json_path +"', '" + static_path + "');",
+                onclick: "changeTheme('" + element.id + "', '" + element.primary + "', '" + element.secondary + "', '" + json_path +"', '" + static_path + "');",
                 class: "w3-bar-item w3-button theme-dropdown-item" + is_selected,
                 text: element.name
               })
@@ -50,7 +43,7 @@ function loadThemes(json_path, static_path) {
             $("#theme-dropdown-side-items").append(
                 $("<a>", {
                 href: "javascript:void(0);",
-                onclick: "changeTheme('" + element.id + "', '" + json_path +"', '" + static_path + "');",
+                onclick: "changeTheme('" + element.id + "', '" + element.primary + "', '" + element.secondary + "', '" + json_path +"', '" + static_path + "');",
                 class: "w3-bar-item w3-button theme-dropdown-item" + is_selected,
                 text: element.name
             }));
