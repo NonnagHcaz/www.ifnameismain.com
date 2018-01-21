@@ -8,20 +8,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- CDN for jQuery -->
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous">
     </script>
+
+    <!-- CDN for underscore.js (use _, underscore, as a variable) -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
-<!--     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script> -->
+
+    <!-- CDN for bluebird (use Promises) -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bluebird/3.5.1/bluebird.min.js"></script>
+
+    <!-- CDN for LESS -->
+    <!--     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script> -->
 
     <script src="{% static 'js/cookies.js' %}"></script>
     <script src="{% static 'js/themes.js' %}"></script>
     <script src="{% static 'js/base.js' %}"></script>
+
+    <!-- jQuery to run on `ready()` for each page. -->
     <script>
+      var json_path = "{% static 'css/gkit_css/themes.json' %}";
+      var static_path = "{% get_static_prefix %}";
       $(function(){
-        loadThemes("/static/css/gkit_css/themes.json", "/static/");
+        loadThemes(json_path, static_path);
 
         var policy_read = readCookie(COOKIE_POLICY_COOKIE_KEY);
         if (policy_read != null) {
@@ -30,15 +42,17 @@
 
         var ctheme = readCookie(THEME_COOKIE_KEY);
         if (ctheme != null && ctheme.length > 0) {
-          changeTheme(ctheme);
+          changeTheme(ctheme, static_path);
         } else {
-          changeTheme("hotline_miami");
+          changeTheme("hotline_miami", static_path);
           createCookie(THEME_COOKIE_KEY, "hotline_miami", 1)
         }
       });
     </script>
 
+    <!-- W3.CSS -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- FontAwesome 5 -->
     <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
@@ -66,6 +80,7 @@
         background-repeat: repeat;
       }
     </style>
+    <link id="dynamic_css" rel="stylesheet" type="text/css" href="{% static 'css/gkit_css/themes/gk_theme_hotline_miami.css' %}">
   </head>
 
   <body class="bgimg">
@@ -112,7 +127,8 @@
         <div id="theme-dropdown-top" class="w3-bar-item w3-center w3-dropdown-hover" style="width:14.2857142857% !important">
           <i class="fas fa-paint-brush"></i>
           <div id="theme-dropdown-top-items" class="w3-dropdown-content w3-bar-block theme-dropdown-items">
-            <b class="w3-bar-item w3-black">THEMES</b>
+            <!-- <b class="w3-bar-item w3-black">THEMES</b> -->
+            <a class="w3-bar-item w3-button w3-black" href={% url 'themes' %}><b>THEMES</b></a>
           </div>
         </div>
         <a href={% url 'home' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-home %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-home"></i></a>

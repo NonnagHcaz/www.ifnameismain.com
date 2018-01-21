@@ -1,9 +1,9 @@
 THEME_COOKIE_KEY = "theme"
-THEME_BASEDIR = "/static/css/gkit_css/themes/"
+THEME_BASEDIR = "css/gkit_css/themes/"
 THEME_HEAD = "gk_theme_"
 
-function changeTheme(theme) {
-    newstylesheet = getSheetName(theme);
+function changeTheme(theme, static_path) {
+    newstylesheet = getSheetName(theme, static_path);
 
     if ($("#dynamic_css").length == 0) {
         $("head").append("<link>")
@@ -22,8 +22,8 @@ function changeTheme(theme) {
     createCookie(THEME_COOKIE_KEY, theme, 1);
 }
 
-function getSheetName(theme) {
-    return (THEME_BASEDIR + THEME_HEAD + theme + ".css");
+function getSheetName(theme, static_path) {
+    return (static_path + THEME_BASEDIR + THEME_HEAD + theme + ".css");
 }
 
 function loadThemes(json_path, static_path) {
@@ -32,14 +32,14 @@ function loadThemes(json_path, static_path) {
             $("#theme-dropdown-top-items").append(
                 $("<a>", {
                 href: "javascript:void(0);",
-                onclick: "changeTheme('" + element.key + "');",
+                onclick: "changeTheme('" + element.key + "', '" + static_path + "');",
                 class: "w3-bar-item w3-button",
                 text: element.canonical
             }));
             $("#theme-dropdown-side-items").append(
                 $("<a>", {
                 href: "javascript:void(0);",
-                onclick: "changeTheme('" + element.key + "');",
+                onclick: "changeTheme('" + element.key + "', '" + static_path + "');",
                 class: "w3-bar-item w3-button",
                 text: element.canonical
             }));
