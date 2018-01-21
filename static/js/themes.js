@@ -4,10 +4,10 @@ SECONDARY_COOKIE_KEY = "secondary"
 
 
 function changeTheme(theme, primary, secondary) {
-    $(".gk-theme-text-element").css(
+    $(".gk-theme-text").css(
         "color", primary
     );
-    $(".gk-theme-text-element").css(
+    $(".gk-theme-text").css(
         "text-shadow", "2px 2px " + secondary
     );
     createCookie(THEME_COOKIE_KEY, theme);
