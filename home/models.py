@@ -11,7 +11,7 @@ class Author(models.Model):
 
 class Theme(models.Model):
     name = models.CharField(max_length=255)
-    key = models.CharField(max_length=255)
+    key = models.CharField(max_length=255, primary_key=True)
     primary = models.CharField(max_length=255)
     secondary = models.CharField(max_length=255)
     authors = models.ManyToManyField(Author)

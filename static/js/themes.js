@@ -5,19 +5,19 @@ THEME_FILE = "/theme.css"
 function changeTheme(theme, json_path, static_path) {
     newstylesheet = getSheetName(theme, static_path);
 
-    if ($("#dynamic_css").length == 0) {
-        $("head").append("<link>")
-        css = $("head").children(":last");
+    // if ($("#dynamic_css").length == 0) {
+    //     $("head").append("<link>")
+    //     css = $("head").children(":last");
 
-        css.attr({
-          id: "dynamic_css",
-          rel:  "stylesheet",
-          type: "text/css",
-          href: newstylesheet
-        });
-    } else {
-        $("#dynamic_css").attr("href",newstylesheet);
-    }
+    //     css.attr({
+    //       id: "dynamic_css",
+    //       rel:  "stylesheet",
+    //       type: "text/css",
+    //       href: newstylesheet
+    //     });
+    // } else {
+    //     $("#dynamic_css").attr("href",newstylesheet);
+    // }
     eraseCookie(THEME_COOKIE_KEY);
     createCookie(THEME_COOKIE_KEY, theme);
     loadThemes(json_path, static_path);
