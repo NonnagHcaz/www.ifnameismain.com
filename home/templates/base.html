@@ -33,7 +33,7 @@
       var json_path = "{% static 'css/gkit_css/themes.json' %}";
       var static_path = "{% get_static_prefix %}";
       $(function(){
-        loadThemes(json_path, static_path);
+        // loadThemes({{gk_theme_data}});
         
         // var ctheme = readCookie(THEME_COOKIE_KEY);
         // var cprimary = readCookie(PRIMARY_COOKIE_KEY);
@@ -99,6 +99,9 @@
         <div id="theme-dropdown-side-items" class="w3-dropdown-content w3-bar-block theme-dropdown-items">
           <!-- <b class="w3-bar-item ">THEMES</b> -->
           <a class="w3-bar-item w3-button w3-black" href={% url 'themes' %}><b>THEMES</b></a>
+            {% for element in gk_theme_data %}
+              <a href="javascript:void(0);" onclick="changeTheme('{{element.key}}', '{{element.primary}}', '{{element.secondary}}');" class="w3-bar-item w3-button theme-dropdown-item">{{element.name}}</a>
+            {% endfor %}
         </div>
       </div>
 
@@ -136,6 +139,9 @@
           <div id="theme-dropdown-top-items" class="w3-dropdown-content w3-bar-block theme-dropdown-items">
             <!-- <b class="w3-bar-item w3-black">THEMES</b> -->
             <a class="w3-bar-item w3-button w3-black" href={% url 'themes' %}><b>THEMES</b></a>
+            {% for element in gk_theme_data %}
+              <a href="javascript:void(0);" onclick="changeTheme('{{element.key}}', '{{element.primary}}', '{{element.secondary}}');" class="w3-bar-item w3-button theme-dropdown-item">{{element.name}}</a>
+            {% endfor %}
           </div>
         </div>
         <a href={% url 'home' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-home %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-home"></i></a>

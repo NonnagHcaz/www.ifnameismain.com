@@ -1,4 +1,6 @@
+from django.forms.models import model_to_dict
 from django.shortcuts import render
+from django.core import serializers
 from .models import Author, Theme
 
 import json
@@ -105,6 +107,8 @@ def _render(request, target, **kwargs):
 
     kwargs['gk_theme_primary'] = primary
     kwargs['gk_theme_secondary'] = secondary
+    kwargs['gk_theme_data'] = [
+        model_to_dict(model) for model in Theme.objects.all()]
 
     response = render(request, target, kwargs)
     response.set_cookie('theme', theme)
