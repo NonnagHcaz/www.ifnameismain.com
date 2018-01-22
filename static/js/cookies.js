@@ -1,9 +1,9 @@
 // Cookies
 function createCookie(name, value, days) {
     if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        var expires = "; expires=" + date.toGMTString();
+        var d = new Date();
+        d.setTime(d.getTime() + (days*24*60*60*1000));
+        var expires = "; expires="+ d.toUTCString();
     }
     else var expires = "; expires=2019-12-31T23:59:59.000Z";
 

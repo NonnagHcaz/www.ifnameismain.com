@@ -69,7 +69,7 @@ def submit_view(request):
 
 def _render(request, target, **kwargs):
 
-    theme = ''
+    age = 60 * 60 * 24 * 7
 
     primary = request.GET.get('primary')
     secondary = request.GET.get('secondary')
@@ -97,9 +97,8 @@ def _render(request, target, **kwargs):
         model_to_dict(model) for model in Theme.objects.all()]
 
     response = render(request, target, kwargs)
-    response.set_cookie('theme', theme)
-    response.set_cookie('primary', primary)
-    response.set_cookie('secondary', secondary)
+    response.set_cookie('primary', primary, max_age=age)
+    response.set_cookie('secondary', secondary, max_age=age)
     return response
 
 
