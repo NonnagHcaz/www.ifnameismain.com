@@ -140,7 +140,7 @@ STATIC_ROOT = '/var/www/ifnameismain.com/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    '/var/www/static/',
+    STATIC_ROOT,
 ]
 
 STATIC_PRECOMPILER_ROOT = STATIC_URL
