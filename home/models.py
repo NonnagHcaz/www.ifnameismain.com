@@ -19,10 +19,9 @@ class Theme(models.Model):
 
     def __str__(self):
         return (
-            '\n\t'.join([
-                '<Theme Object>',
-                'Name: ' + self.name,
-                'ID: ' + self.key,
-                'Primary: ' + self.primary,
-                'Secondary: ' + self.secondary,
-                'Stars: ' + str(self.stars or 0)]))
+            ',\n\t'.join([
+                'name: ' + self.name,
+                'key: ' + self.key,
+                'primary: ' + self.primary,
+                'secondary: ' + self.secondary,
+                'stars: ' + str(self.stars or 0)]))
