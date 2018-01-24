@@ -20,6 +20,8 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
+    url(r'^$', views.landing_view, name='landing'),
+    url(r'^home/', views.home_view, name='home'),
     url(r'^wip/$', views.wip_view, name='wip'),
     url(r'^coding/$', views.coding_view, name='coding'),
     url(r'^about/$', views.about_view, name='about'),

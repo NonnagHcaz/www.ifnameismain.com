@@ -1,4 +1,4 @@
-"""pythonanywhere URL Configuration
+"""project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -21,7 +21,7 @@ from home import urls as home_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', home_views.landing_view, name='landing'),
-    url(r'^home/', home_views.home_view, name='home'),
+    # url(r'^$', home_views.landing_view, name='landing'),
+    # url(r'^home/', home_views.home_view, name='home'),
     url(r'', include(home_urls))
 ]
