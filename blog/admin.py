@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Theme
+from .models import Author, Theme
 
+admin.site.register(Author)
 admin.site.register(Theme)

@@ -1,0 +1,31 @@
+{% load static %}
+
+<DOCTYPE html>
+<html>
+    <head>
+        <title>Initiating...</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'home/css/wd2.css' %}">
+        <script
+           src="https://code.jquery.com/jquery-3.2.1.min.js"
+           integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+           crossorigin="anonymous"></script>
+        <script src="{% static 'home/js/lib/tinytyper.min.js' %}"></script>
+        <script src="{% static 'home/js/custom_typer.js' %}"></script>
+        <script>
+            $(document).ready(function() {
+                $(document).keypress(function(event) {
+                    window.location.href = "{% url 'home' %}";
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            <article class="box">
+                <div id="message"></div>
+            </article>
+        </div>
+    </body>
+
+</html>

@@ -23,10 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('MY_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 0
+DEBUG = 1
 
-ALLOWED_HOSTS = ['localhost', '.ifnameismain.com']
+ALLOWED_HOSTS = ['.localhost', '.ifnameismain.com', '.test.com']
 
+SITE_ID = 1
 
 # Application definition
 
@@ -38,14 +39,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'home',
+    'blog',
     'static_precompiler',
     'django_user_agents',
+    'subdomains',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'subdomains.middleware.SubdomainURLRoutingMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -56,11 +61,18 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'project.urls'
 
+SUBDOMAIN_URLCONFS = {
+    None: 'home.urls',  # no subdomain, e.g. ``example.com``
+    'www': 'home.urls',
+    'blog': 'blog.urls',
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates', 'home'),
+            os.path.join(BASE_DIR, 'templates', 'blog'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -137,4 +149,4 @@ STATIC_PRECOMPILER_COMPILERS = (
     'static_precompiler.compilers.LESS'
 )
 
-# SECURE_SSL_REDIRECT = not DEBUG
+SECURE_SSL_REDIRECT = not DEBUG

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+  Coding. Music. Gaming.
+{% endblock %}
+
+{% block content %}
+  <!-- Use any element to open/show the overlay navigation menu -->
+
+  <div class="w3-content w3-justify w3-text-light-grey w3-margin-32" id="content">
+    <h2 class="gk-theme-text">Themes</h2>
+
+    <p >Scroll down to view available theme samples, or submit your own theme with the form <a href={% url 'submit' %} class="gk-theme-text">here</a>.</p>
+    {% for element in gk_theme_data %}
+        <a id="theme-item-{{element.key}}" href="javascript:void(0);" onclick="changeTheme('{{element.key}}', '{{element.primary}}', '{{element.secondary}}');" class="w3-bar-item w3-button" style="color:{{element.primary}}; text-shadow:2px 2px {{element.secondary}}">{{element.name}}</a>
+        <br />
+    {% endfor %}
+  </div>
+
+{% endblock %}

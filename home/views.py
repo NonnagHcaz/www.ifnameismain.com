@@ -1,7 +1,6 @@
 from django.forms.models import model_to_dict
 from django.shortcuts import render
-from django.core import serializers
-from .models import Author, Theme
+from .models import Theme
 
 import json
 
@@ -14,56 +13,56 @@ except Exception:
 # from django.http import HttpResponse
 
 
-def themes_view(request):
+def themes_view(request, **kwargs):
     return _render(request, 'themes.html')
 
 
-def about_view(request):
+def about_view(request, **kwargs):
     return _render(request, 'about.html')
 
 
-def cookies_view(request):
+def cookies_view(request, **kwargs):
     return _render(request, 'cookies.html')
 
 
-def home_view(request):
+def home_view(request, **kwargs):
     return _render(request, 'home.html')
 
 
-def wip_view(request):
+def wip_view(request, **kwargs):
     return _render(request, 'wip.html')
 
 
-def gaming_view(request):
+def gaming_view(request, **kwargs):
     return _render(request, 'gaming.html')
 
 
-def music_view(request):
+def music_view(request, **kwargs):
     return _render(request, 'music.html')
 
 
-def contact_view(request):
+def contact_view(request, **kwargs):
     return _render(request, 'contact.html')
 
 
-def coding_view(request):
+def coding_view(request, **kwargs):
     return _render(request, 'coding.html')
 
 
-def wd2_view(request):
+def wd2_view(request, **kwargs):
     return _render(request, 'wd2.html')
 
 
-def landing_view(request):
+def landing_view(request, **kwargs):
     if 'landed' in request.COOKIES or request.user_agent.is_touch_capable:
-        response = home_view(request)
+        response = home_view(request, **kwargs)
     elif not request.user_agent.is_touch_capable:
-        response = wd2_view(request)
+        response = wd2_view(request, **kwargs)
         response.set_cookie('landed', '1')
     return response
 
 
-def submit_view(request):
+def submit_view(request, **kwargs):
     return _render(request, 'submit.html')
 
 
@@ -102,7 +101,7 @@ def _render(request, target, **kwargs):
     return response
 
 
-def kharon_controller(request):
+def kharon_controller(request, **kwargs):
     preview = ''
     output = ''
     target = 'content'
@@ -138,7 +137,7 @@ def kharon_controller(request):
     return kwargs
 
 
-def kharon_view(request):
-    kwargs = kharon_controller(request)
+def kharon_view(request, **kwargs):
+    kwargs = kharon_controller(request, **kwargs)
     return _render(
         request, 'kharon.html', **kwargs)
