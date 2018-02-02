@@ -137,4 +137,4 @@ STATIC_PRECOMPILER_COMPILERS = (
     'static_precompiler.compilers.LESS'
 )
 
-# SECURE_SSL_REDIRECT = not DEBUG
+SECURE_SSL_REDIRECT = not DEBUG
