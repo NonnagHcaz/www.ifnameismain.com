@@ -1,0 +1,6 @@
+exclude:
+- /static/home/js/lib/.*
+component_depth: 1
+languages:
+- javascript
+- python
