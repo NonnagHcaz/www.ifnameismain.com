@@ -1,7 +1,10 @@
 from django.forms.models import model_to_dict
 from django.shortcuts import render
-from django.core import serializers
-from .models import Author, Theme
+# from django.core import serializers
+# from .models import Author
+from .models import Theme
+
+from pyfiglet import Figlet
 
 import json
 
@@ -39,6 +42,12 @@ def gaming_view(request):
 
 
 def music_view(request):
+    kwargs = {
+        'fuy_figlets': {
+            'figlet_large': _get_figlet('Fuy Gieri', 'sub-zero'),
+            'figlet_medium_top': _get_figlet('Fuy', 'sub-zero'),
+            'figlet_medium_bot': _get_figlet('Gieri', 'sub-zero'),
+            'figlet_small': _get_figlet('Fuy Gieri', '1row')}}
     return _render(request, 'music.html')
 
 
@@ -68,6 +77,29 @@ def submit_view(request):
 
 
 def _render(request, target, **kwargs):
+
+    if 'figlets' not in kwargs:
+        kwargs['figlets'] = {}
+
+    if 'figlet_large_top' not in kwargs['figlets']:
+        kwargs['figlets']['figlet_large_top'] = _get_figlet(
+            'if name', 'sub-zero')
+
+    if 'figlet_large_bot' not in kwargs['figlets']:
+        kwargs['figlets']['figlet_large_bot'] = _get_figlet(
+            'is main', 'sub-zero')
+
+    if 'figlet_medium_top' not in kwargs['figlets']:
+        kwargs['figlets']['figlet_medium_top'] = _get_figlet(
+            'if name', 'sub-zero')
+
+    if 'figlet_medium_bot' not in kwargs['figlets']:
+        kwargs['figlets']['figlet_medium_bot'] = _get_figlet(
+            'is main', 'sub-zero')
+
+    if 'figlet_small' not in kwargs['figlets']:
+        kwargs['figlets']['figlet_small'] = _get_figlet(
+            'if name is main', '1row')
 
     age = 60 * 60 * 24 * 7
 
@@ -119,7 +151,7 @@ def kharon_controller(request):
                         username.lower(), reponame.lower(), cogname.lower()),
                     sort_keys=True)
                 target = 'convert'
-            except Exception as e:
+            except:
                 pass
     elif request.GET.get('convert_button'):
         data = request.GET.get('upload_preview_textarea')
@@ -142,3 +174,7 @@ def kharon_view(request):
     kwargs = kharon_controller(request)
     return _render(
         request, 'kharon.html', **kwargs)
+
+
+def _get_figlet(text='Hello, world!', font='sub-zero'):
+    return Figlet(font=font).renderText(text)

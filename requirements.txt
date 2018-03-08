@@ -3,3 +3,4 @@ django-static-precompiler
 django-user-agents
 django-suit==0.2.25
 Kharon
+pyfiglet

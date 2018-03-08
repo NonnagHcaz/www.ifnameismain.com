@@ -16,12 +16,9 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from home import views as home_views
 from home import urls as home_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'^$', home_views.landing_view, name='landing'),
-    # url(r'^home/', home_views.home_view, name='home'),
     url(r'', include(home_urls))
 ]
