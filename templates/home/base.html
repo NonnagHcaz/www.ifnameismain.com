@@ -28,16 +28,6 @@
     <script src="{% static 'home/js/themes.js' %}"></script>
     <script src="{% static 'home/js/base.js' %}"></script>
 
-    <!-- jQuery to run on `ready()` for each page. -->
-    <script>
-      $(function(){
-        var policy_read = readCookie(COOKIE_POLICY_COOKIE_KEY);
-        if (policy_read != null) {
-          hideCookiePolicy();
-        }
-      });
-    </script>
-
     <!-- W3.CSS -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- FontAwesome 5 -->
@@ -150,6 +140,7 @@
     <div class="w3-padding-large" id="main">
       <header class="w3-container w3-padding-32 w3-text-light-grey w3-center" id="header">
         <div id="cookie_policy_banner" class="w3-small w3-black">
+        {% if not policy_acknowledged %}
           <div class="w3-bar">
             <p class="w3-bar-item">This website uses cookies to keep things like themes persistent site-wide. Please see the <a class="gk-theme-text" href="{% url 'cookies' %}" target="_blank">Cookie Policy</a> for further information. <a
               class="w3-button w3-grey"
@@ -157,6 +148,7 @@
               Got it!
             </a></p>
           </div>
+        {% endif %}
         </div>
 
         <div class="w3-row w3-hide-small">
@@ -169,7 +161,7 @@
         </div>
 
         <div class="w3-row w3-hide-large w3-hide-medium ">
-          <h1 class="w3-col w3-jumbo gk-theme-text"><i>IF NAME IS MAIN</i></h1>
+          <h1 class="w3-col w3-jumbo gk-theme-text"><i>if name is main</i></h1>
         </div>
 
         <div class="w3-row">

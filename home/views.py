@@ -106,11 +106,14 @@ def _render(request, target, **kwargs):
     primary = request.GET.get('primary')
     secondary = request.GET.get('secondary')
     theme = request.GET.get('theme_name')
+    policy_acknowledged = 'policy_acknowledged' in request.COOKIES
 
     try:
         theme_model = Theme.objects.get(key=theme)
     except Exception:
         theme_model = None
+
+    kwargs['policy_acknowledged'] = 1 if policy_acknowledged else 0
 
     if not (primary and secondary):
         if theme_model:
