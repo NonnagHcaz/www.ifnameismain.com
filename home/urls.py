@@ -20,16 +20,17 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.landing_view, name='landing'),
+    url(r'^$', views.home_view, name='home'),
     url(r'^home/', views.home_view, name='home'),
     url(r'^wip/$', views.wip_view, name='wip'),
     url(r'^coding/$', views.coding_view, name='coding'),
     url(r'^about/$', views.about_view, name='about'),
     url(r'^music/$', views.music_view, name='music'),
+    url(r'^media/$', views.media_view, name='media'),
     url(r'^gaming/$', views.gaming_view, name='gaming'),
     url(r'^contact/$', views.contact_view, name='contact'),
     url(r'^login/$', views.wd2_view, name='wd2'),
-    url(r'^coding/[kK]haron/$', views.kharon_view, name='kharon'),
+    # url(r'^coding/[kK]haron/$', views.kharon_view, name='kharon'),
     url(r'^cookies/$', views.cookies_view, name='cookies'),
     url(r'^themes/$', views.themes_view, name='themes'),
     url(r'^themes/submit/$', views.submit_view, name='submit'),

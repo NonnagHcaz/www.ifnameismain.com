@@ -48,7 +48,7 @@
     <style>
       @font-face {
         font-family: "Courier Prime Code";
-        src:url("{% static 'home/fonts/Courier Prime Code/Courier Prime Code.ttf' %}") format('ttf');
+        src:url("{% static 'home/fonts/Courier Prime Code/Courier Prime Code.ttf' %}") format('truetype'), local('Courier Prime Code');
       }
       div,body,h1,h2,h3,h4,h5,h6,p,a { font-family: "Courier Prime Code"; }
       .w3-row-padding img { margin-bottom: 12px; }
@@ -63,18 +63,19 @@
       link, a {
         text-decoration: none;
       }
+      /* Credit: https://www.toptal.com/designers/subtlepatterns/subtle-carbon/ */
       .bgimg {
-        background-image: url("{% static 'home/img/bg/dark_wood.png' %}");
+        background-image: url("{% static 'home/img/bg/subtle_carbon_@2X.png' %}");
         background-repeat: repeat;
       }
       .gk-theme-text { color: {{gk_theme_primary}}; text-shadow: 2px 2px {{gk_theme_secondary}}; }
     </style>
-<!--     <link id="dynamic_css" rel="stylesheet" type="text/css" href="{% static 'css/gkit_css/themes/gk_theme_hotline_miami.css' %}"> -->
-    <script type="text/javascript"> //<![CDATA[ 
+    {% comment %}<!--     <link id="dynamic_css" rel="stylesheet" type="text/css" href="{% static 'css/gkit_css/themes/gk_theme_hotline_miami.css' %}"> -->{% endcomment %}
+{% comment %}<!--     <script type="text/javascript"> //<![CDATA[ 
       var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.comodo.com/" : "http://www.trustlogo.com/");
       document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
       //]]>
-    </script>
+    </script> -->{% endcomment %}
   </head>
 
   <body class="bgimg">
@@ -100,14 +101,18 @@
         <i class="fa fa-code w3-xxlarge"></i>
         <p>CODING</p>
       </a>
-      <a href={% url 'music' %} class="w3-bar-item w3-button w3-padding-large w3-hover-black {% block side-music %}{% endblock %}">
-        <i class="fa fa-headphones w3-xxlarge"></i>
-        <p>MUSIC</p>
-      </a>
       <a href={% url 'gaming' %} class="w3-bar-item w3-button w3-padding-large w3-hover-black {% block side-gaming %}{% endblock %}">
         <i class="fa fa-gamepad w3-xxlarge"></i>
         <p>GAMING</p>
       </a>
+      <a href={% url 'media' %} class="w3-bar-item w3-button w3-padding-large w3-hover-black {% block side-media %}{% endblock %}">
+        <i class="fa fa-tv w3-xxlarge"></i>
+        <p>POP CULTURE</p>
+      </a>
+      {% comment %}<a href={% url 'music' %} class="w3-bar-item w3-button w3-padding-large w3-hover-black {% block side-music %}{% endblock %}">
+        <i class="fa fa-headphones w3-xxlarge"></i>
+        <p>MUSIC</p>
+      </a>{% endcomment %}
       <a href={% url 'about' %} class="w3-bar-item w3-button w3-padding-large w3-hover-black {% block side-about %}{% endblock %}">
         <i class="fa fa-address-card w3-xxlarge"></i>
         <p>ABOUT</p>
@@ -133,8 +138,9 @@
         </div>
         <a href={% url 'home' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-home %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-home"></i></a>
         <a href={% url 'coding' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-coding %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-code"></i></a>
-        <a href={% url 'music' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-music %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-headphones"></i></a>
         <a href={% url 'gaming' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-gaming %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-gamepad"></i></a>
+        <a href={% url 'media' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-media %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-tv"></i></a>
+        {% comment %}<a href={% url 'music' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-music %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-headphones"></i></a>{% endcomment %}
           <a href={% url 'about' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-about %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-address-card"></i></a>
         <a href={% url 'contact' %} class="w3-bar-item w3-center w3-button w3-hover-black {% block top-contact %}{% endblock %}" style="width:14.2857142857% !important"><i class="fa fa-envelope"></i></a>
       </div>
@@ -153,16 +159,16 @@
           </div>
         </div>
 
-        <div class="w3-row w3-hide-medium w3-hide-small">
+        <div class="w3-row w3-hide-small">
           <pre class="w3-threequarter gk-theme-text">{{figlets.figlet_large_top}}</pre>
         </div>
 
-        <div class="w3-row w3-hide-medium w3-hide-small">
+        <div class="w3-row w3-hide-small">
           <div class="w3-quarter w3-text-black">_</div>
           <pre class="w3-threequarter gk-theme-text">{{figlets.figlet_large_bot}}</pre>
         </div>
 
-        <div class="w3-row w3-hide-large">
+        <div class="w3-row w3-hide-large w3-hide-medium ">
           <h1 class="w3-col w3-jumbo gk-theme-text"><i>IF NAME IS MAIN</i></h1>
         </div>
 
@@ -179,13 +185,14 @@
 
         <div class="w3-xlarge w3-section">
           <a href="https://github.com/NonnagHcaz" target="_blank"><i class="fab fa-github w3-hover-opacity"></i></a>
-          <a href="https://www.twitch.tv/gannon93" target="_blank"><i class="fab fa-twitch w3-hover-opacity"></i></a>
+          <a href="https://www.twitch.tv/idiomaticpython" target="_blank"><i class="fab fa-twitch w3-hover-opacity"></i></a>
           <a href="https://twitter.com/NonnagHcaz" target="_blank"><i class="fab fa-twitter w3-hover-opacity"></i></a>
         </div>
-
-        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a> | <img src="{% static 'comodo/img/comodo_secure_seal_76x26_transp.png' %}" />
-
+        <br />
+        <p>Powered by <a href="https://www.djangoproject.com/" title="Django" target="_blank" class="gk-theme-text">Django</a>, <a href="https://www.w3schools.com/w3css/default.asp" title="FontAwesome" target="_blank" class="gk-theme-text">FontAwesome</a>, and <a href="https://fontawesome.com/" title="W3.CSS" target="_blank" class="gk-theme-text">W3.CSS</a>
         </p>
+        <p>Secured by <a href="https://letsencrypt.org/" title="LetsEncrypt" target="_blank" class="gk-theme-text">Let's Encrypt</a></p>
+
       </footer>
     </div>
   </body>

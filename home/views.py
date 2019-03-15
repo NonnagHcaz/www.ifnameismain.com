@@ -16,9 +16,15 @@ except Exception:
 
 # from django.http import HttpResponse
 
+BASE_FIGLET = 'sub-zero'
+SMALL_FIGLET = '1row'
+
 
 def themes_view(request):
     return _render(request, 'themes.html')
+
+def media_view(request):
+    return _render(request, 'media.html')
 
 
 def about_view(request):
@@ -42,12 +48,6 @@ def gaming_view(request):
 
 
 def music_view(request):
-    kwargs = {
-        'fuy_figlets': {
-            'figlet_large': _get_figlet('Fuy Gieri', 'sub-zero'),
-            'figlet_medium_top': _get_figlet('Fuy', 'sub-zero'),
-            'figlet_medium_bot': _get_figlet('Gieri', 'sub-zero'),
-            'figlet_small': _get_figlet('Fuy Gieri', '1row')}}
     return _render(request, 'music.html')
 
 
@@ -83,23 +83,23 @@ def _render(request, target, **kwargs):
 
     if 'figlet_large_top' not in kwargs['figlets']:
         kwargs['figlets']['figlet_large_top'] = _get_figlet(
-            'if name', 'sub-zero')
+            'if name', BASE_FIGLET)
 
     if 'figlet_large_bot' not in kwargs['figlets']:
         kwargs['figlets']['figlet_large_bot'] = _get_figlet(
-            'is main', 'sub-zero')
+            'is main', BASE_FIGLET)
 
     if 'figlet_medium_top' not in kwargs['figlets']:
         kwargs['figlets']['figlet_medium_top'] = _get_figlet(
-            'if name', 'sub-zero')
+            'if name', BASE_FIGLET)
 
     if 'figlet_medium_bot' not in kwargs['figlets']:
         kwargs['figlets']['figlet_medium_bot'] = _get_figlet(
-            'is main', 'sub-zero')
+            'is main', BASE_FIGLET)
 
     if 'figlet_small' not in kwargs['figlets']:
         kwargs['figlets']['figlet_small'] = _get_figlet(
-            'if name is main', '1row')
+            'if name is main', BASE_FIGLET)
 
     age = 60 * 60 * 24 * 7
 
@@ -176,5 +176,5 @@ def kharon_view(request):
         request, 'kharon.html', **kwargs)
 
 
-def _get_figlet(text='Hello, world!', font='sub-zero'):
+def _get_figlet(text='Hello, world!', font=BASE_FIGLET):
     return Figlet(font=font).renderText(text)
