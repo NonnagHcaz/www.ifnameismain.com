@@ -151,7 +151,7 @@ def kharon_controller(request):
                         username.lower(), reponame.lower(), cogname.lower()),
                     sort_keys=True)
                 target = 'convert'
-            except:
+            except Exception:
                 pass
     elif request.GET.get('convert_button'):
         data = request.GET.get('upload_preview_textarea')
@@ -179,6 +179,6 @@ def kharon_view(request):
 def _get_figlet(text='Hello, world!', font=BASE_FIGLET):
     try:
         figlet = Figlet(font=font).renderText(text)
-    except: 
-        figlet = Figlet(font='mnemonic').renderText(text)
+    except Exception:
+        figlet = Figlet(font='larry3d').renderText(text)
     return figlet
