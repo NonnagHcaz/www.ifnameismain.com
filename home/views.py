@@ -16,7 +16,7 @@ except Exception:
 
 # from django.http import HttpResponse
 
-BASE_FIGLET = 'sub-zero'
+BASE_FIGLET = 'Sub-Zero'
 SMALL_FIGLET = '1row'
 
 
