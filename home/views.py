@@ -177,4 +177,9 @@ def kharon_view(request):
 
 
 def _get_figlet(text='Hello, world!', font=BASE_FIGLET):
-    return Figlet(font=font).renderText(text)
+    figlet = 'if name is main'
+    try:
+        figlet = Figlet(font=font).renderText(text)
+    except: 
+        pass
+    return figlet
